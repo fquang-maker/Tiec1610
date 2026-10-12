@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Điều Phối Công Việc Giao Lưu 20/10 - Khối Hành Chính</title>
-  <!-- Tailwind CSS -->
+  <title>Điều Phối Giao Lưu 16/10 - 6 Đơn Vị Khối Hành Chính</title>
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts Inter & Plus Jakarta Sans -->
+  <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -27,32 +27,32 @@
 
   <style>
     ::-webkit-scrollbar {
-      width: 7px;
-      height: 7px;
+      width: 6px;
+      height: 6px;
     }
     ::-webkit-scrollbar-track {
       background: #f1f5f9;
-      border-radius: 6px;
+      border-radius: 4px;
     }
     ::-webkit-scrollbar-thumb {
       background: #cbd5e1;
-      border-radius: 6px;
+      border-radius: 4px;
     }
     ::-webkit-scrollbar-thumb:hover {
       background: #94a3b8;
     }
 
     .kanban-dropzone {
-      min-height: 480px;
+      min-height: 520px;
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .kanban-dropzone.drag-active {
       background-color: #e0f2fe !important;
       border: 2px dashed #0284c7 !important;
-      border-radius: 0.75rem;
+      border-radius: 1rem;
     }
     .task-card-ghost {
-      opacity: 0.4;
+      opacity: 0.35;
       transform: scale(0.98);
     }
     .line-clamp-2 {
@@ -83,11 +83,10 @@
 </head>
 <body class="bg-slate-100 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-sky-500 selection:text-white">
 
-  <!-- Header Bar -->
   <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-xs no-print">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-        <!-- Brand & Title -->
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+        <!-- Logo & Thông tin khối -->
         <div class="flex items-center space-x-3.5">
           <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-sky-600 via-indigo-600 to-rose-500 text-white flex items-center justify-center shadow-md flex-shrink-0">
             <i data-lucide="calendar-heart" class="w-6 h-6"></i>
@@ -98,20 +97,21 @@
               <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-rose-100 text-rose-700 border border-rose-200">
                 <i data-lucide="clock" class="w-3 h-3 mr-1 inline"></i> Thứ Sáu, 16/10
               </span>
+              <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-teal-100 text-teal-800 border border-teal-200">
+                6 Đơn vị
+              </span>
             </div>
-            <p class="text-xs sm:text-sm text-slate-500 font-medium">Khối Hành Chính: Truyền thông • Tài chính • Đào tạo • Tổ chức • Khảo thí</p>
+            <p class="text-xs sm:text-sm text-slate-500 font-medium">Khối Hành Chính: Truyền thông • Tài chính • Đào tạo • Tổ chức • Khảo thí • KHCN</p>
           </div>
         </div>
 
-        <!-- Action Toolbars -->
+        <!-- Các nút thao tác nhanh -->
         <div class="flex flex-wrap items-center gap-2">
-          <!-- Nút Thêm việc mới -->
           <button onclick="openModalForCreate()" class="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs sm:text-sm font-semibold rounded-lg bg-sky-600 hover:bg-sky-700 text-white shadow-sm transition-all focus:ring-2 focus:ring-sky-500">
             <i data-lucide="plus-circle" class="w-4 h-4"></i>
             Thêm việc mới
           </button>
           
-          <!-- Nhóm Xuất / Nhập / In -->
           <div class="inline-flex rounded-lg border border-slate-200 bg-white p-0.5 shadow-2xs">
             <button onclick="exportData()" title="Xuất dữ liệu dự phòng (JSON)" class="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-100 rounded-md transition-all">
               <i data-lucide="download" class="w-3.5 h-3.5 text-slate-500"></i> Xuất file
@@ -125,19 +125,16 @@
             </button>
           </div>
 
-          <!-- Nút Đặt lại dữ liệu gốc -->
-          <button onclick="resetDefaultTasksWithPrompt()" title="Phục hồi dữ liệu mẫu 5 đơn vị" class="p-2 text-slate-500 hover:text-rose-600 hover:bg-rose-50 rounded-lg border border-slate-200 transition-all">
+          <button onclick="resetDefaultTasksWithPrompt()" title="Phục hồi dữ liệu mẫu 6 đơn vị" class="p-2 text-slate-500 hover:text-rose-600 hover:bg-rose-50 rounded-lg border border-slate-200 transition-all">
             <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
           </button>
         </div>
       </div>
 
-      <!-- Secondary Filter & Search Bar -->
-      <div class="mt-4 pt-3.5 border-t border-slate-100 flex flex-col lg:flex-row lg:items-center justify-between gap-3.5">
-        <!-- Thanh Tìm kiếm và Lọc Đơn Vị -->
+      <div class="mt-4 pt-3.5 border-t border-slate-100 flex flex-col xl:flex-row xl:items-center justify-between gap-3.5">
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 flex-1">
           <!-- Ô Tìm kiếm nhanh -->
-          <div class="relative min-w-[210px] sm:max-w-xs">
+          <div class="relative min-w-[200px] sm:max-w-xs">
             <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
             <input type="text" id="searchInput" oninput="handleSearch(this.value)" placeholder="Tìm việc, người phụ trách..." 
                    class="w-full pl-9 pr-8 py-1.5 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-lg focus:outline-hidden focus:ring-2 focus:ring-sky-500 focus:bg-white transition-all">
@@ -146,7 +143,7 @@
             </button>
           </div>
 
-          <!-- Bộ nút lọc nhanh từng đơn vị -->
+          <!-- Bộ nút lọc nhanh 6 đơn vị -->
           <div class="flex items-center gap-1 overflow-x-auto pb-1 sm:pb-0 text-xs font-medium">
             <span class="text-slate-400 mr-1 text-xs whitespace-nowrap">Đơn vị:</span>
             <button onclick="filterByUnit('all')" class="unit-filter-btn px-2.5 py-1 rounded-md border text-xs transition-all bg-slate-900 text-white border-slate-900 font-semibold" data-unit="all">
@@ -167,10 +164,13 @@
             <button onclick="filterByUnit('Khảo thí')" class="unit-filter-btn px-2.5 py-1 rounded-md border text-xs transition-all bg-white text-rose-700 border-rose-200 hover:bg-rose-50" data-unit="Khảo thí">
               Khảo thí
             </button>
+            <button onclick="filterByUnit('KHCN')" class="unit-filter-btn px-2.5 py-1 rounded-md border text-xs transition-all bg-white text-teal-700 border-teal-200 hover:bg-teal-50" data-unit="KHCN">
+              KHCN
+            </button>
           </div>
         </div>
 
-        <!-- Thanh Thống kê Tiến độ -->
+        <!-- Thống kê Tiến độ -->
         <div class="flex items-center gap-3 bg-slate-50 border border-slate-200/80 px-3 py-1.5 rounded-lg flex-shrink-0">
           <div class="w-32 bg-slate-200 rounded-full h-2.5 overflow-hidden">
             <div id="progress-bar-fill" class="bg-gradient-to-r from-sky-500 to-emerald-500 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div>
@@ -185,20 +185,19 @@
     </div>
   </header>
 
-  <!-- Main Kanban Board -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full">
-    <!-- Hướng dẫn thao tác nhanh -->
+    <!-- Thanh thông báo hướng dẫn -->
     <div class="mb-4 flex items-center justify-between text-xs text-slate-500 bg-white/70 border border-slate-200/80 rounded-lg px-3 py-2 no-print">
       <div class="flex items-center gap-2">
         <i data-lucide="info" class="w-4 h-4 text-sky-600 flex-shrink-0"></i>
-        <span><strong>Mẹo nhanh:</strong> Nhấp đúp chuột (<strong>Double-click</strong>) vào bất kỳ thẻ việc nào hoặc bấm nút <strong>Sửa</strong> để cập nhật nhanh nội dung. Kéo thả card giữa các cột hoặc chọn nhanh ở menu thả xuống.</span>
+        <span><strong>Mẹo:</strong> Nhấp đúp (<strong>Double-click</strong>) vào thẻ việc hoặc bấm icon <strong>Sửa</strong> để cập nhật nhanh. Kéo thả card giữa các cột hoặc chọn nhanh menu thả xuống.</span>
       </div>
     </div>
 
     <!-- 3 Cột Công Việc -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5 items-start">
       
-      <!-- CỘT 1: CẦN LÀM (TO DO) -->
+      <!-- CỘT 1: CẦN LÀM -->
       <section class="flex flex-col bg-slate-200/70 rounded-2xl p-3.5 border border-slate-300 shadow-xs">
         <div class="flex items-center justify-between px-1.5 py-1 mb-3">
           <div class="flex items-center gap-2">
@@ -212,11 +211,10 @@
              ondragover="handleDragOver(event)" 
              ondragleave="handleDragLeave(event)" 
              ondrop="handleDrop(event, 'todo')">
-          <!-- Card render dynamically -->
         </div>
       </section>
 
-      <!-- CỘT 2: ĐANG XỬ LÝ (IN PROGRESS) -->
+      <!-- CỘT 2: ĐANG XỬ LÝ -->
       <section class="flex flex-col bg-sky-50/80 rounded-2xl p-3.5 border border-sky-200 shadow-xs">
         <div class="flex items-center justify-between px-1.5 py-1 mb-3">
           <div class="flex items-center gap-2">
@@ -230,11 +228,10 @@
              ondragover="handleDragOver(event)" 
              ondragleave="handleDragLeave(event)" 
              ondrop="handleDrop(event, 'inprogress')">
-          <!-- Card render dynamically -->
         </div>
       </section>
 
-      <!-- CỘT 3: ĐÃ HOÀN THÀNH (DONE) -->
+      <!-- CỘT 3: ĐÃ HOÀN THÀNH -->
       <section class="flex flex-col bg-emerald-50/80 rounded-2xl p-3.5 border border-emerald-200 shadow-xs">
         <div class="flex items-center justify-between px-1.5 py-1 mb-3">
           <div class="flex items-center gap-2">
@@ -248,16 +245,14 @@
              ondragover="handleDragOver(event)" 
              ondragleave="handleDragLeave(event)" 
              ondrop="handleDrop(event, 'done')">
-          <!-- Card render dynamically -->
         </div>
       </section>
 
     </div>
   </main>
 
-  <!-- MODAL THÊM / CHỈNH SỬA CÔNG VIỆC -->
   <div id="taskModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-2xs flex items-center justify-center p-4 hidden">
-    <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden transform transition-all border border-slate-100 animate-in fade-in zoom-in duration-150">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden transform transition-all border border-slate-100">
       <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/80">
         <div class="flex items-center gap-2">
           <div id="modalIconContainer" class="w-8 h-8 rounded-lg bg-sky-100 text-sky-600 flex items-center justify-center">
@@ -273,7 +268,7 @@
       <form id="taskForm" onsubmit="handleFormSubmit(event)" class="p-6 space-y-4">
         <input type="hidden" id="taskId">
 
-        <!-- Nội dung công việc -->
+        <!-- Tên công việc -->
         <div>
           <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Tên công việc <span class="text-rose-500">*</span></label>
           <input type="text" id="taskTitle" required placeholder="Nhập tên đầu việc cần thực hiện..." 
@@ -281,7 +276,7 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-          <!-- Đơn vị phụ trách -->
+          <!-- Đơn vị phụ trách (Đã có đủ 6 đơn vị) -->
           <div>
             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Đơn vị phụ trách <span class="text-rose-500">*</span></label>
             <select id="taskUnit" required class="w-full rounded-xl border-slate-300 border px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-hidden bg-white">
@@ -290,10 +285,11 @@
               <option value="Đào tạo">Đào tạo</option>
               <option value="Tổ chức">Tổ chức</option>
               <option value="Khảo thí">Khảo thí</option>
+              <option value="KHCN">KHCN (Khoa học & Công nghệ)</option>
             </select>
           </div>
 
-          <!-- Người / Đầu mối phụ trách -->
+          <!-- Người phụ trách -->
           <div>
             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Đầu mối phụ trách</label>
             <input type="text" id="taskAssignee" placeholder="VD: Anh Quang, CĐ phòng..." 
@@ -302,14 +298,14 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
-          <!-- Hạn chót -->
+          <!-- Deadline -->
           <div>
-            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Hạn chót (Deadline) <span class="text-rose-500">*</span></label>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Hạn chót <span class="text-rose-500">*</span></label>
             <input type="text" id="taskDeadline" required placeholder="VD: 14/10 hoặc 15h 15/10" 
                    class="w-full rounded-xl border-slate-300 border px-3 py-2.5 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-hidden">
           </div>
 
-          <!-- Mức độ ưu tiên -->
+          <!-- Mức ưu tiên -->
           <div>
             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Mức ưu tiên</label>
             <select id="taskPriority" class="w-full rounded-xl border-slate-300 border px-3 py-2.5 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-hidden bg-white">
@@ -319,7 +315,7 @@
             </select>
           </div>
 
-          <!-- Trạng thái cột -->
+          <!-- Trạng thái -->
           <div>
             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Trạng thái</label>
             <select id="taskStatus" class="w-full rounded-xl border-slate-300 border px-3 py-2.5 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-hidden bg-white font-medium">
@@ -333,11 +329,11 @@
         <!-- Chi tiết ghi chú -->
         <div>
           <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Chi tiết công việc / Ghi chú</label>
-          <textarea id="taskDesc" rows="3" placeholder="Ghi chú chi tiết yêu cầu, lưu ý tài chính, địa điểm hoặc phân công cụ thể..." 
+          <textarea id="taskDesc" rows="3" placeholder="Ghi chú chi tiết yêu cầu, lưu ý tài chính, mã QR check-in, âm thanh hoặc phân công cụ thể..." 
                     class="w-full rounded-xl border-slate-300 border px-3.5 py-2 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-hidden leading-relaxed"></textarea>
         </div>
 
-        <!-- Nút thao tác trong Modal -->
+        <!-- Các nút thao tác trong Modal -->
         <div class="flex items-center justify-between pt-3 border-t border-slate-100">
           <button type="button" id="modalDeleteBtn" onclick="deleteCurrentTaskFromModal()" class="hidden text-xs text-rose-600 hover:text-rose-700 hover:underline font-semibold flex items-center gap-1">
             <i data-lucide="trash-2" class="w-3.5 h-3.5"></i> Xóa việc này
@@ -360,7 +356,7 @@
   </div>
 
   <script>
-    // Dữ liệu mẫu ban đầu theo phân công 5 đơn vị
+    // Danh mục công việc mẫu cho đủ 6 đơn vị
     const DEFAULT_TASKS = [
       {
         id: "task-1",
@@ -384,13 +380,13 @@
       },
       {
         id: "task-3",
-        title: "Lập bảng dự toán chi phí chi tiết & chia định mức 5 đơn vị",
+        title: "Lập bảng dự toán chi phí chi tiết & chia định mức 6 đơn vị",
         unit: "Tài chính",
         assignee: "CĐ Tài chính",
         deadline: "13/10",
         priority: "Cao",
         status: "inprogress",
-        desc: "Dự toán tiền hoa chúc mừng, quà minigame, bánh trái và trà tiệc giao lưu theo tinh thần chia sẻ."
+        desc: "Dự toán tiền hoa chúc mừng, quà minigame, bánh trái và trà tiệc giao lưu chia đều cho 6 phòng."
       },
       {
         id: "task-4",
@@ -404,6 +400,16 @@
       },
       {
         id: "task-5",
+        title: "Tạo link & mã QR Check-in điểm danh nhận quà trực tuyến",
+        unit: "KHCN",
+        assignee: "CĐ KHCN",
+        deadline: "14/10",
+        priority: "Cao",
+        status: "todo",
+        desc: "Lập mã QR đặt tại bàn tiếp đón để cán bộ quét mã check-in, quay số may mắn mini trúng quà 20/10."
+      },
+      {
+        id: "task-6",
         title: "Cử MC dẫn dắt chương trình & điều phối trò chơi",
         unit: "Truyền thông",
         assignee: "Truyền thông",
@@ -413,7 +419,7 @@
         desc: "Cử 1-2 MC nam nữ hoạt náo, phối hợp nhịp nhàng với ban tổ chức."
       },
       {
-        id: "task-6",
+        id: "task-7",
         title: "Chuẩn bị 1-2 tiết mục văn nghệ giao lưu (hát / thơ)",
         unit: "Đào tạo",
         assignee: "CĐ Đào tạo",
@@ -423,17 +429,27 @@
         desc: "Chuẩn bị tiết mục văn nghệ giao lưu tạo không khí sôi nổi, ấm áp."
       },
       {
-        id: "task-7",
+        id: "task-8",
         title: "Phối hợp thiết kế 2 minigame kết nối giữa các đơn vị",
         unit: "Đào tạo",
         assignee: "CĐ Đào tạo",
         deadline: "14/10",
         priority: "Trung bình",
         status: "todo",
-        desc: "Soạn câu hỏi đố vui và chuẩn bị đạo cụ trò chơi giao lưu kết nối 5 phòng."
+        desc: "Soạn câu hỏi đố vui và chuẩn bị đạo cụ trò chơi giao lưu kết nối 6 phòng."
       },
       {
-        id: "task-8",
+        id: "task-9",
+        title: "Chuẩn bị quà tặng công nghệ & câu hỏi đố vui KHCN",
+        unit: "KHCN",
+        assignee: "CĐ KHCN",
+        deadline: "15/10",
+        priority: "Trung bình",
+        status: "todo",
+        desc: "Chuẩn bị 3-5 phần quà minigame nhỏ xinh gắn liền với tiện ích công nghệ cho chị em phụ nữ."
+      },
+      {
+        id: "task-10",
         title: "Đặt hoa tươi & chuẩn bị phần quà chúc mừng các chị em",
         unit: "Khảo thí",
         assignee: "CĐ Khảo thí",
@@ -443,7 +459,7 @@
         desc: "Đặt lẵng hoa tươi chúc mừng và các phần quà trao tặng đại diện nữ các phòng ban."
       },
       {
-        id: "task-9",
+        id: "task-11",
         title: "Đặt bánh ngọt, trái cây & chuẩn bị bàn tiệc giao lưu",
         unit: "Khảo thí",
         assignee: "CĐ Khảo thí",
@@ -453,7 +469,7 @@
         desc: "Đặt bánh kem/bánh ngọt, trái cây tươi, trà, nước ngọt và dụng cụ dùng tiệc trước 15h00."
       },
       {
-        id: "task-10",
+        id: "task-12",
         title: "Chuẩn bị hội trường: kê bàn ghế quây ấm cúng & vệ sinh",
         unit: "Tổ chức",
         assignee: "CĐ TCHC",
@@ -463,7 +479,7 @@
         desc: "Bố trí bàn ghế theo hình chữ U hoặc quây tròn tăng tương tác, chuẩn bị nước uống đón tiếp."
       },
       {
-        id: "task-11",
+        id: "task-13",
         title: "Kiểm tra kỹ thuật âm thanh, 2 micro & kết nối máy chiếu",
         unit: "Tổ chức",
         assignee: "Tổ kỹ thuật TCHC",
@@ -473,18 +489,18 @@
         desc: "Test âm thanh loa máy, thay pin micro không dây và kiểm tra cổng HDMI máy chiếu."
       },
       {
-        id: "task-12",
+        id: "task-14",
         title: "Thu kinh phí đóng góp và thực hiện thanh quyết toán",
         unit: "Tài chính",
         assignee: "CĐ Tài chính",
         deadline: "16/10",
         priority: "Trung bình",
         status: "todo",
-        desc: "Thu kinh phí đóng góp từ 5 công đoàn và thanh toán các hóa đơn thực tế sau chương trình."
+        desc: "Thu kinh phí đóng góp từ 6 công đoàn và thanh toán các hóa đơn thực tế sau chương trình."
       }
     ];
 
-    // Cấu hình nhãn màu sắc cho 5 đơn vị
+    // Cấu hình bảng màu cho đủ 6 đơn vị (bao gồm KHCN)
     const UNIT_CONFIG = {
       'Truyền thông': {
         badgeBg: 'bg-blue-50',
@@ -515,6 +531,12 @@
         badgeText: 'text-rose-700',
         badgeBorder: 'border-rose-200',
         accentBar: 'bg-rose-500',
+      },
+      'KHCN': {
+        badgeBg: 'bg-teal-50',
+        badgeText: 'text-teal-700',
+        badgeBorder: 'border-teal-200',
+        accentBar: 'bg-teal-600',
       }
     };
 
@@ -530,7 +552,7 @@
     let draggedTaskId = null;
 
     function loadTasks() {
-      const stored = localStorage.getItem('block_2010_kanban_tasks');
+      const stored = localStorage.getItem('block_2010_kanban_tasks_v2');
       if (stored) {
         try {
           tasks = JSON.parse(stored);
@@ -545,7 +567,7 @@
     }
 
     function saveTasks() {
-      localStorage.setItem('block_2010_kanban_tasks', JSON.stringify(tasks));
+      localStorage.setItem('block_2010_kanban_tasks_v2', JSON.stringify(tasks));
       updateProgressMetrics();
     }
 
@@ -604,7 +626,6 @@
 
       Object.values(cols).forEach(col => col.innerHTML = '');
 
-      // Lọc danh sách theo Đơn vị và Tìm kiếm từ khóa
       const filteredTasks = tasks.filter(task => {
         const matchUnit = (currentFilter === 'all') || (task.unit === currentFilter);
         const matchSearch = !searchQuery || 
@@ -629,10 +650,8 @@
       document.getElementById('badge-inprogress').innerText = counts.inprogress;
       document.getElementById('badge-done').innerText = counts.done;
 
-      // Cập nhật thanh tiến độ chung
       updateProgressMetrics();
 
-      // Render lại icon Lucide
       if (window.lucide) {
         lucide.createIcons();
       }
@@ -652,11 +671,10 @@
       card.className = "task-card bg-white p-3.5 rounded-xl border border-slate-200/90 shadow-2xs hover:shadow-md transition-all cursor-grab active:cursor-grabbing relative overflow-hidden group select-none";
       card.setAttribute('draggable', 'true');
       card.setAttribute('data-id', task.id);
-      card.setAttribute('title', 'Nhấp đúp chuột để chỉnh sửa việc này nhanh');
+      card.setAttribute('title', 'Nhấp đúp chuột để chỉnh sửa việc này');
 
-      // Gắn sự kiện Double click để sửa nhanh
+      // Nhấp đúp chuột để mở modal sửa nhanh
       card.addEventListener('dblclick', (e) => {
-        // Tránh kích hoạt nếu đang bấm select hoặc button
         if (e.target.tagName !== 'SELECT' && e.target.tagName !== 'BUTTON' && !e.target.closest('button')) {
           editTask(task.id);
         }
@@ -669,7 +687,7 @@
       card.innerHTML = `
         <div class="absolute left-0 top-0 bottom-0 w-1.5 ${unitStyle.accentBar}"></div>
         <div class="pl-1">
-          <!-- Dòng 1: Đơn vị + Mức ưu tiên + Nút Sửa & Xóa -->
+          <!-- Hàng 1: Đơn vị + Mức độ + Các nút thao tác -->
           <div class="flex items-center justify-between gap-1.5 mb-2">
             <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-bold border ${unitStyle.badgeBg} ${unitStyle.badgeText} ${unitStyle.badgeBorder}">
               ${task.unit}
@@ -679,12 +697,10 @@
               <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold border ${priorityBadge}">
                 ${task.priority}
               </span>
-              <!-- Nút Sửa nhanh -->
-              <button onclick="editTask('${task.id}')" title="Sửa chi tiết công việc" class="p-1 text-slate-400 hover:text-sky-600 hover:bg-sky-50 rounded transition-all">
+              <button onclick="editTask('${task.id}')" title="Sửa chi tiết" class="p-1 text-slate-400 hover:text-sky-600 hover:bg-sky-50 rounded transition-all">
                 <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
               </button>
-              <!-- Nút Xóa nhanh -->
-              <button onclick="deleteTaskPrompt('${task.id}')" title="Xóa việc" class="p-1 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded transition-all">
+              <button onclick="deleteTaskPrompt('${task.id}')" title="Xóa" class="p-1 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded transition-all">
                 <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
               </button>
             </div>
@@ -695,10 +711,10 @@
             ${escapeHtml(task.title)}
           </h4>
 
-          <!-- Ghi chú / Mô tả nếu có -->
+          <!-- Ghi chú nếu có -->
           ${task.desc ? `<p class="text-xs text-slate-500 line-clamp-2 mb-2 leading-relaxed">${escapeHtml(task.desc)}</p>` : ''}
 
-          <!-- Phụ trách & Hạn chót -->
+          <!-- Phụ trách & Deadline -->
           <div class="flex items-center justify-between text-xs text-slate-500 pt-2 border-t border-slate-100/80 gap-2">
             <div class="flex items-center gap-1 truncate font-medium text-slate-600">
               <i data-lucide="user" class="w-3.5 h-3.5 text-slate-400 flex-shrink-0"></i>
@@ -711,7 +727,7 @@
             </div>
           </div>
 
-          <!-- Chuyển trạng thái cột nhanh -->
+          <!-- Chọn nhanh trạng thái cột -->
           <div class="mt-2.5 pt-2 border-t border-dashed border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
             <span class="text-slate-400">Chuyển cột:</span>
             <select onchange="quickChangeStatus('${task.id}', this.value)" class="text-[11px] font-medium bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-md px-2 py-0.5 text-slate-700 focus:outline-hidden focus:ring-1 focus:ring-sky-500 transition-colors">
@@ -835,14 +851,12 @@
       if (!title || !deadline) return;
 
       if (id) {
-        // Cập nhật công việc hiện có
         const index = tasks.findIndex(t => t.id === id);
         if (index !== -1) {
           tasks[index] = { ...tasks[index], title, unit, assignee, deadline, priority, status, desc };
           showToast('Đã lưu chỉnh sửa công việc thành công!');
         }
       } else {
-        // Thêm mới công việc
         const newTask = {
           id: 'task-' + Date.now(),
           title,
@@ -874,7 +888,6 @@
       const task = tasks.find(t => t.id === id);
       if (!task) return;
       
-      // Xóa công việc an toàn
       tasks = tasks.filter(t => t.id !== id);
       saveTasks();
       renderBoard();
@@ -918,10 +931,9 @@
       tasks = JSON.parse(JSON.stringify(DEFAULT_TASKS));
       saveTasks();
       renderBoard();
-      showToast('Đã khôi phục danh mục công việc mẫu ban đầu!');
+      showToast('Đã khôi phục danh mục công việc 6 đơn vị!');
     }
 
-    // Helper functions
     function showToast(msg) {
       const toast = document.getElementById('toast');
       const toastMsg = document.getElementById('toastMessage');
@@ -947,7 +959,6 @@
         .replace(/'/g, "&#039;");
     }
 
-    // Đóng modal khi nhấn phím ESC hoặc nhấn ra ngoài
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeModal();
     });
@@ -956,7 +967,6 @@
       if (e.target === modal) closeModal();
     });
 
-    // Khởi tạo ứng dụng
     window.addEventListener('DOMContentLoaded', () => {
       loadTasks();
     });
