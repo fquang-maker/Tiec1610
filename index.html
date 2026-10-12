@@ -1,143 +1,185 @@
 <!DOCTYPE html>
-<html lang="vi"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<html lang="vi">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bảng Điều Phối Công Việc Giao Lưu 20/10 - Khối Hành Chính</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="B%E1%BA%A3ng%20%C4%90i%E1%BB%81u%20Ph%E1%BB%91i%20C%C3%B4ng%20Vi%E1%BB%87c%20Giao%20L%C6%B0u%2020_10%20-%20Kh%E1%BB%91i%20H%C3%A0nh%20Ch%C3%ADnh_files/3.4_CvE7.17"></script>
-  <!-- Google Fonts Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com/">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-  <link href="B%E1%BA%A3ng%20%C4%90i%E1%BB%81u%20Ph%E1%BB%91i%20C%C3%B4ng%20Vi%E1%BB%87c%20Giao%20L%C6%B0u%2020_10%20-%20Kh%E1%BB%91i%20H%C3%A0nh%20Ch%C3%ADnh_files/css2_CvE7.css" rel="stylesheet">
-  <!-- Lucide Icons -->
-  <script src="B%E1%BA%A3ng%20%C4%90i%E1%BB%81u%20Ph%E1%BB%91i%20C%C3%B4ng%20Vi%E1%BB%87c%20Giao%20L%C6%B0u%2020_10%20-%20Kh%E1%BB%91i%20H%C3%A0nh%20Ch%C3%ADnh_files/lucide.min_CvE7.js"></script>
+  <title>Điều Phối Công Việc Giao Lưu 20/10 - Khối Hành Chính</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-          },
-          colors: {
-            brand: {
-              50: '#f0f7ff',
-              100: '#e0effe',
-              500: '#0284c7',
-              600: '#0369a1',
-              700: '#075985',
-            }
           }
         }
       }
     }
   </script>
+
   <style>
-    /* Thanh cuộn mềm mại */
     ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
+      width: 7px;
+      height: 7px;
     }
     ::-webkit-scrollbar-track {
       background: #f1f5f9;
-      border-radius: 4px;
+      border-radius: 6px;
     }
     ::-webkit-scrollbar-thumb {
       background: #cbd5e1;
-      border-radius: 4px;
+      border-radius: 6px;
     }
     ::-webkit-scrollbar-thumb:hover {
       background: #94a3b8;
     }
-    .kanban-col {
+
+    .kanban-dropzone {
       min-height: 480px;
-      transition: background-color 0.2s ease, border-color 0.2s ease;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .kanban-col.drag-over {
-      background-color: #f1f5f9;
+    .kanban-dropzone.drag-active {
+      background-color: #e0f2fe !important;
       border: 2px dashed #0284c7 !important;
+      border-radius: 0.75rem;
     }
-    .card-dragging {
-      opacity: 0.45;
+    .task-card-ghost {
+      opacity: 0.4;
       transform: scale(0.98);
     }
-  </style>
-<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:"Plus Jakarta Sans", sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.bottom-5{bottom:1.25rem}.right-5{right:1.25rem}.top-0{top:0px}.bottom-0{bottom:0px}.left-0{left:0px}.z-30{z-index:30}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-1\.5{margin-bottom:0.375rem}.mb-3{margin-bottom:0.75rem}.mr-1{margin-right:0.25rem}.mt-4{margin-top:1rem}.mb-2{margin-bottom:0.5rem}.mb-2\.5{margin-bottom:0.625rem}.line-clamp-2{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-11{height:2.75rem}.h-2{height:0.5rem}.h-3{height:0.75rem}.h-3\.5{height:0.875rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.min-h-screen{min-height:100vh}.w-11{width:2.75rem}.w-3{width:0.75rem}.w-3\.5{width:0.875rem}.w-4{width:1rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-full{width:100%}.w-1\.5{width:0.375rem}.max-w-7xl{max-width:80rem}.max-w-md{max-width:28rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.translate-y-20{--tw-translate-y:5rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.translate-y-0{--tw-translate-y:0px;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}.cursor-grab{cursor:grab}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-5{gap:1.25rem}.gap-1{gap:0.25rem}.space-x-3 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.75rem * var(--tw-space-x-reverse));margin-left:calc(0.75rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.whitespace-nowrap{white-space:nowrap}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-xl{border-radius:0.75rem}.rounded{border-radius:0.25rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-amber-200{--tw-border-opacity:1;border-color:rgb(253 230 138 / var(--tw-border-opacity, 1))}.border-blue-200{--tw-border-opacity:1;border-color:rgb(191 219 254 / var(--tw-border-opacity, 1))}.border-emerald-200{--tw-border-opacity:1;border-color:rgb(167 243 208 / var(--tw-border-opacity, 1))}.border-purple-200{--tw-border-opacity:1;border-color:rgb(233 213 255 / var(--tw-border-opacity, 1))}.border-rose-200{--tw-border-opacity:1;border-color:rgb(254 205 211 / var(--tw-border-opacity, 1))}.border-sky-200{--tw-border-opacity:1;border-color:rgb(186 230 253 / var(--tw-border-opacity, 1))}.border-slate-100{--tw-border-opacity:1;border-color:rgb(241 245 249 / var(--tw-border-opacity, 1))}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240 / var(--tw-border-opacity, 1))}.border-slate-300{--tw-border-opacity:1;border-color:rgb(203 213 225 / var(--tw-border-opacity, 1))}.border-slate-300\/80{border-color:rgb(203 213 225 / 0.8)}.border-slate-900{--tw-border-opacity:1;border-color:rgb(15 23 42 / var(--tw-border-opacity, 1))}.border-slate-200\/90{border-color:rgb(226 232 240 / 0.9)}.bg-emerald-50\/80{background-color:rgb(236 253 245 / 0.8)}.bg-emerald-500{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1))}.bg-rose-100{--tw-bg-opacity:1;background-color:rgb(255 228 230 / var(--tw-bg-opacity, 1))}.bg-sky-50\/80{background-color:rgb(240 249 255 / 0.8)}.bg-sky-500{--tw-bg-opacity:1;background-color:rgb(14 165 233 / var(--tw-bg-opacity, 1))}.bg-sky-600{--tw-bg-opacity:1;background-color:rgb(2 132 199 / var(--tw-bg-opacity, 1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.bg-slate-200{--tw-bg-opacity:1;background-color:rgb(226 232 240 / var(--tw-bg-opacity, 1))}.bg-slate-200\/70{background-color:rgb(226 232 240 / 0.7)}.bg-slate-400{--tw-bg-opacity:1;background-color:rgb(148 163 184 / var(--tw-bg-opacity, 1))}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-slate-900\/50{background-color:rgb(15 23 42 / 0.5)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-amber-100{--tw-bg-opacity:1;background-color:rgb(254 243 199 / var(--tw-bg-opacity, 1))}.bg-amber-50{--tw-bg-opacity:1;background-color:rgb(255 251 235 / var(--tw-bg-opacity, 1))}.bg-amber-500{--tw-bg-opacity:1;background-color:rgb(245 158 11 / var(--tw-bg-opacity, 1))}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.bg-blue-600{--tw-bg-opacity:1;background-color:rgb(37 99 235 / var(--tw-bg-opacity, 1))}.bg-emerald-50{--tw-bg-opacity:1;background-color:rgb(236 253 245 / var(--tw-bg-opacity, 1))}.bg-emerald-600{--tw-bg-opacity:1;background-color:rgb(5 150 105 / var(--tw-bg-opacity, 1))}.bg-purple-50{--tw-bg-opacity:1;background-color:rgb(250 245 255 / var(--tw-bg-opacity, 1))}.bg-purple-600{--tw-bg-opacity:1;background-color:rgb(147 51 234 / var(--tw-bg-opacity, 1))}.bg-rose-50{--tw-bg-opacity:1;background-color:rgb(255 241 242 / var(--tw-bg-opacity, 1))}.bg-rose-500{--tw-bg-opacity:1;background-color:rgb(244 63 94 / var(--tw-bg-opacity, 1))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.bg-gradient-to-tr{background-image:linear-gradient(to top right, var(--tw-gradient-stops))}.from-sky-500{--tw-gradient-from:#0ea5e9 var(--tw-gradient-from-position);--tw-gradient-to:rgb(14 165 233 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-sky-600{--tw-gradient-from:#0284c7 var(--tw-gradient-from-position);--tw-gradient-to:rgb(2 132 199 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-emerald-500{--tw-gradient-to:#10b981 var(--tw-gradient-to-position)}.to-rose-500{--tw-gradient-to:#f43f5e var(--tw-gradient-to-position)}.p-1{padding:0.25rem}.p-3\.5{padding:0.875rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.px-1\.5{padding-left:0.375rem;padding-right:0.375rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pb-1{padding-bottom:0.25rem}.pt-2{padding-top:0.5rem}.pt-3{padding-top:0.75rem}.pl-1{padding-left:0.25rem}.font-sans{font-family:"Plus Jakarta Sans", sans-serif}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.tracking-tight{letter-spacing:-0.025em}.tracking-wider{letter-spacing:0.05em}.text-amber-700{--tw-text-opacity:1;color:rgb(180 83 9 / var(--tw-text-opacity, 1))}.text-blue-700{--tw-text-opacity:1;color:rgb(29 78 216 / var(--tw-text-opacity, 1))}.text-emerald-400{--tw-text-opacity:1;color:rgb(52 211 153 / var(--tw-text-opacity, 1))}.text-emerald-700{--tw-text-opacity:1;color:rgb(4 120 87 / var(--tw-text-opacity, 1))}.text-emerald-900{--tw-text-opacity:1;color:rgb(6 78 59 / var(--tw-text-opacity, 1))}.text-purple-700{--tw-text-opacity:1;color:rgb(126 34 206 / var(--tw-text-opacity, 1))}.text-rose-700{--tw-text-opacity:1;color:rgb(190 18 60 / var(--tw-text-opacity, 1))}.text-sky-600{--tw-text-opacity:1;color:rgb(2 132 199 / var(--tw-text-opacity, 1))}.text-sky-700{--tw-text-opacity:1;color:rgb(3 105 161 / var(--tw-text-opacity, 1))}.text-sky-900{--tw-text-opacity:1;color:rgb(12 74 110 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity, 1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-0{opacity:0}.opacity-80{opacity:0.8}.opacity-100{opacity:1}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.duration-500{transition-duration:500ms}.hover\:bg-amber-50:hover{--tw-bg-opacity:1;background-color:rgb(255 251 235 / var(--tw-bg-opacity, 1))}.hover\:bg-blue-50:hover{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.hover\:bg-emerald-50:hover{--tw-bg-opacity:1;background-color:rgb(236 253 245 / var(--tw-bg-opacity, 1))}.hover\:bg-purple-50:hover{--tw-bg-opacity:1;background-color:rgb(250 245 255 / var(--tw-bg-opacity, 1))}.hover\:bg-rose-50:hover{--tw-bg-opacity:1;background-color:rgb(255 241 242 / var(--tw-bg-opacity, 1))}.hover\:bg-sky-700:hover{--tw-bg-opacity:1;background-color:rgb(3 105 161 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-100:hover{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-50:hover{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.hover\:text-rose-600:hover{--tw-text-opacity:1;color:rgb(225 29 72 / var(--tw-text-opacity, 1))}.hover\:text-slate-600:hover{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.hover\:text-sky-600:hover{--tw-text-opacity:1;color:rgb(2 132 199 / var(--tw-text-opacity, 1))}.hover\:text-sky-700:hover{--tw-text-opacity:1;color:rgb(3 105 161 / var(--tw-text-opacity, 1))}.hover\:shadow-md:hover{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-1:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-sky-500:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(14 165 233 / var(--tw-ring-opacity, 1))}.active\:cursor-grabbing:active{cursor:grabbing}.group:hover .group-hover\:opacity-100{opacity:1}@media (min-width: 640px){.sm\:items-center{align-items:center}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}}@media (min-width: 768px){.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:items-center{align-items:center}.md\:justify-between{justify-content:space-between}.md\:pb-0{padding-bottom:0px}}@media (min-width: 1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}</style></head>
-<body class="bg-slate-100 text-slate-800 font-sans min-h-screen flex flex-col antialiased">
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
 
-  <!-- Header -->
-  <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-xs">
+    @media print {
+      header, .no-print {
+        display: none !important;
+      }
+      body {
+        background: white !important;
+        color: black !important;
+      }
+      .kanban-dropzone {
+        min-height: auto !important;
+      }
+      .task-card {
+        break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #cbd5e1 !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-sky-500 selection:text-white">
+
+  <!-- Header Bar -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-xs no-print">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
       <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-        <!-- Brand Info -->
-        <div class="flex items-start sm:items-center space-x-3">
-          <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-sky-600 to-rose-500 text-white flex items-center justify-center shadow-md flex-shrink-0">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="calendar-heart" aria-hidden="true" class="lucide lucide-calendar-heart w-6 h-6"><path d="M12.127 21H5a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v5.125"></path><path d="M14.62 17.8A2.25 2.25 0 1118 14.836a2.25 2.25 0 113.38 2.966l-2.626 2.856a.998.998 0 01-1.507 0z"></path><path d="M16 2v3"></path><path d="M3 9h18"></path><path d="M8 2v3"></path></svg>
+        <!-- Brand & Title -->
+        <div class="flex items-center space-x-3.5">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-sky-600 via-indigo-600 to-rose-500 text-white flex items-center justify-center shadow-md flex-shrink-0">
+            <i data-lucide="calendar-heart" class="w-6 h-6"></i>
           </div>
           <div>
-            <div class="flex items-center gap-2">
-              <h1 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">Điều Phối Giao Lưu 20/10</h1>
-              <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-rose-100 text-rose-700 border border-rose-200">
-                16/10 Dự kiến
+            <div class="flex items-center gap-2 flex-wrap">
+              <h1 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">Kế Hoạch Giao Lưu 20/10</h1>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-rose-100 text-rose-700 border border-rose-200">
+                <i data-lucide="clock" class="w-3 h-3 mr-1 inline"></i> Thứ Sáu, 16/10
               </span>
             </div>
-            <p class="text-xs sm:text-sm text-slate-500 font-medium">Khối Hành chính: Truyền thông • Tài chính • Đào tạo • Tổ chức • Khảo thí</p>
+            <p class="text-xs sm:text-sm text-slate-500 font-medium">Khối Hành Chính: Truyền thông • Tài chính • Đào tạo • Tổ chức • Khảo thí</p>
           </div>
         </div>
 
-        <!-- Action Buttons -->
+        <!-- Action Toolbars -->
         <div class="flex flex-wrap items-center gap-2">
-          <button onclick="openModal()" class="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs sm:text-sm font-semibold rounded-lg bg-sky-600 hover:bg-sky-700 text-white shadow-sm transition-all focus:ring-2 focus:ring-sky-500 focus:outline-hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="plus-circle" aria-hidden="true" class="lucide lucide-plus-circle w-4 h-4"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
+          <!-- Nút Thêm việc mới -->
+          <button onclick="openModalForCreate()" class="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs sm:text-sm font-semibold rounded-lg bg-sky-600 hover:bg-sky-700 text-white shadow-sm transition-all focus:ring-2 focus:ring-sky-500">
+            <i data-lucide="plus-circle" class="w-4 h-4"></i>
             Thêm việc mới
           </button>
-          <button onclick="window.print()" class="inline-flex items-center gap-1.5 px-3 py-2 text-xs sm:text-sm font-medium rounded-lg bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 transition-all">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="printer" aria-hidden="true" class="lucide lucide-printer w-4 h-4 text-slate-500"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"></path><rect x="6" y="14" width="12" height="8" rx="1"></rect></svg>
-            In / Báo cáo
-          </button>
-          <button onclick="resetToDefaultData()" title="Đặt lại dữ liệu ban đầu" class="inline-flex items-center gap-1.5 px-3 py-2 text-xs sm:text-sm font-medium rounded-lg bg-white border border-slate-300 text-slate-600 hover:text-rose-600 hover:bg-slate-50 transition-all">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="rotate-ccw" aria-hidden="true" class="lucide lucide-rotate-ccw w-4 h-4"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
-            Mẫu gốc
+          
+          <!-- Nhóm Xuất / Nhập / In -->
+          <div class="inline-flex rounded-lg border border-slate-200 bg-white p-0.5 shadow-2xs">
+            <button onclick="exportData()" title="Xuất dữ liệu dự phòng (JSON)" class="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-100 rounded-md transition-all">
+              <i data-lucide="download" class="w-3.5 h-3.5 text-slate-500"></i> Xuất file
+            </button>
+            <label title="Nhập dữ liệu từ file JSON" class="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer transition-all">
+              <i data-lucide="upload" class="w-3.5 h-3.5 text-slate-500"></i> Nhập file
+              <input type="file" id="importFileInput" accept=".json" class="hidden" onchange="importData(event)">
+            </label>
+            <button onclick="window.print()" title="In danh sách hoặc lưu PDF" class="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-100 rounded-md transition-all">
+              <i data-lucide="printer" class="w-3.5 h-3.5 text-slate-500"></i> In / PDF
+            </button>
+          </div>
+
+          <!-- Nút Đặt lại dữ liệu gốc -->
+          <button onclick="resetDefaultTasksWithPrompt()" title="Phục hồi dữ liệu mẫu 5 đơn vị" class="p-2 text-slate-500 hover:text-rose-600 hover:bg-rose-50 rounded-lg border border-slate-200 transition-all">
+            <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
           </button>
         </div>
       </div>
 
-      <!-- Progress Bar & Filters -->
-      <div class="mt-4 pt-3 border-t border-slate-100 flex flex-col md:flex-row md:items-center justify-between gap-3">
-        <!-- Progress Indicator -->
-        <div class="flex-1 max-w-md">
-          <div class="flex justify-between items-center mb-1 text-xs font-semibold">
-            <span class="text-slate-600 flex items-center gap-1.5">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="trending-up" aria-hidden="true" class="lucide lucide-trending-up w-3.5 h-3.5 text-sky-600"><path d="M16 7h6v6"></path><path d="m22 7-8.5 8.5-5-5L2 17"></path></svg> Tiến độ toàn khối:
-            </span>
-            <span id="progress-text" class="text-sky-700">0% (0/12 việc)</span>
+      <!-- Secondary Filter & Search Bar -->
+      <div class="mt-4 pt-3.5 border-t border-slate-100 flex flex-col lg:flex-row lg:items-center justify-between gap-3.5">
+        <!-- Thanh Tìm kiếm và Lọc Đơn Vị -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 flex-1">
+          <!-- Ô Tìm kiếm nhanh -->
+          <div class="relative min-w-[210px] sm:max-w-xs">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
+            <input type="text" id="searchInput" oninput="handleSearch(this.value)" placeholder="Tìm việc, người phụ trách..." 
+                   class="w-full pl-9 pr-8 py-1.5 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-lg focus:outline-hidden focus:ring-2 focus:ring-sky-500 focus:bg-white transition-all">
+            <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-2.5 top-2 text-slate-400 hover:text-slate-600">
+              <i data-lucide="x" class="w-3.5 h-3.5"></i>
+            </button>
           </div>
-          <div class="w-full bg-slate-200 rounded-full h-2 overflow-hidden">
-            <div id="progress-bar-fill" class="bg-gradient-to-r from-sky-500 to-emerald-500 h-2 rounded-full transition-all duration-500" style="width: 0%;"></div>
+
+          <!-- Bộ nút lọc nhanh từng đơn vị -->
+          <div class="flex items-center gap-1 overflow-x-auto pb-1 sm:pb-0 text-xs font-medium">
+            <span class="text-slate-400 mr-1 text-xs whitespace-nowrap">Đơn vị:</span>
+            <button onclick="filterByUnit('all')" class="unit-filter-btn px-2.5 py-1 rounded-md border text-xs transition-all bg-slate-900 text-white border-slate-900 font-semibold" data-unit="all">
+              Tất cả
+            </button>
+            <button onclick="filterByUnit('Truyền thông')" class="unit-filter-btn px-2.5 py-1 rounded-md border text-xs transition-all bg-white text-blue-700 border-blue-200 hover:bg-blue-50" data-unit="Truyền thông">
+              Truyền thông
+            </button>
+            <button onclick="filterByUnit('Tài chính')" class="unit-filter-btn px-2.5 py-1 rounded-md border text-xs transition-all bg-white text-emerald-700 border-emerald-200 hover:bg-emerald-50" data-unit="Tài chính">
+              Tài chính
+            </button>
+            <button onclick="filterByUnit('Đào tạo')" class="unit-filter-btn px-2.5 py-1 rounded-md border text-xs transition-all bg-white text-amber-700 border-amber-200 hover:bg-amber-50" data-unit="Đào tạo">
+              Đào tạo
+            </button>
+            <button onclick="filterByUnit('Tổ chức')" class="unit-filter-btn px-2.5 py-1 rounded-md border text-xs transition-all bg-white text-purple-700 border-purple-200 hover:bg-purple-50" data-unit="Tổ chức">
+              Tổ chức
+            </button>
+            <button onclick="filterByUnit('Khảo thí')" class="unit-filter-btn px-2.5 py-1 rounded-md border text-xs transition-all bg-white text-rose-700 border-rose-200 hover:bg-rose-50" data-unit="Khảo thí">
+              Khảo thí
+            </button>
           </div>
         </div>
 
-        <!-- Filter Tags -->
-        <div class="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 text-xs">
-          <span class="text-slate-400 font-medium whitespace-nowrap mr-1">Lọc đơn vị:</span>
-          <button onclick="filterByUnit('all')" class="unit-filter-btn px-2.5 py-1 rounded-md font-medium border transition-colors bg-white text-slate-600 border-slate-200 hover:bg-slate-50" data-unit="all">
-            Tất cả
-          </button>
-          <button onclick="filterByUnit('Truyền thông')" class="unit-filter-btn px-2.5 py-1 rounded-md font-medium border transition-colors bg-slate-900 text-white border-slate-900" data-unit="Truyền thông">
-            Truyền thông
-          </button>
-          <button onclick="filterByUnit('Tài chính')" class="unit-filter-btn px-2.5 py-1 rounded-md font-medium border transition-colors bg-white text-slate-600 border-slate-200 hover:bg-slate-50" data-unit="Tài chính">
-            Tài chính
-          </button>
-          <button onclick="filterByUnit('Đào tạo')" class="unit-filter-btn px-2.5 py-1 rounded-md font-medium border transition-colors bg-white text-slate-600 border-slate-200 hover:bg-slate-50" data-unit="Đào tạo">
-            Đào tạo
-          </button>
-          <button onclick="filterByUnit('Tổ chức')" class="unit-filter-btn px-2.5 py-1 rounded-md font-medium border transition-colors bg-white text-slate-600 border-slate-200 hover:bg-slate-50" data-unit="Tổ chức">
-            Tổ chức
-          </button>
-          <button onclick="filterByUnit('Khảo thí')" class="unit-filter-btn px-2.5 py-1 rounded-md font-medium border transition-colors bg-white text-slate-600 border-slate-200 hover:bg-slate-50" data-unit="Khảo thí">
-            Khảo thí
-          </button>
+        <!-- Thanh Thống kê Tiến độ -->
+        <div class="flex items-center gap-3 bg-slate-50 border border-slate-200/80 px-3 py-1.5 rounded-lg flex-shrink-0">
+          <div class="w-32 bg-slate-200 rounded-full h-2.5 overflow-hidden">
+            <div id="progress-bar-fill" class="bg-gradient-to-r from-sky-500 to-emerald-500 h-2.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+          </div>
+          <div class="text-xs font-semibold text-slate-700 flex items-center gap-1.5 whitespace-nowrap">
+            <span>Tiến độ:</span>
+            <span id="progress-text" class="text-sky-700 font-bold">0%</span>
+            <span id="progress-count" class="text-slate-400 font-normal">(0/0 việc)</span>
+          </div>
         </div>
       </div>
     </div>
@@ -145,310 +187,176 @@
 
   <!-- Main Kanban Board -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full">
+    <!-- Hướng dẫn thao tác nhanh -->
+    <div class="mb-4 flex items-center justify-between text-xs text-slate-500 bg-white/70 border border-slate-200/80 rounded-lg px-3 py-2 no-print">
+      <div class="flex items-center gap-2">
+        <i data-lucide="info" class="w-4 h-4 text-sky-600 flex-shrink-0"></i>
+        <span><strong>Mẹo nhanh:</strong> Nhấp đúp chuột (<strong>Double-click</strong>) vào bất kỳ thẻ việc nào hoặc bấm nút <strong>Sửa</strong> để cập nhật nhanh nội dung. Kéo thả card giữa các cột hoặc chọn nhanh ở menu thả xuống.</span>
+      </div>
+    </div>
+
+    <!-- 3 Cột Công Việc -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5 items-start">
       
-      <!-- Cột 1: Cần làm (To Do) -->
-      <section class="flex flex-col bg-slate-200/70 rounded-2xl p-3.5 border border-slate-300/80 shadow-xs">
+      <!-- CỘT 1: CẦN LÀM (TO DO) -->
+      <section class="flex flex-col bg-slate-200/70 rounded-2xl p-3.5 border border-slate-300 shadow-xs">
         <div class="flex items-center justify-between px-1.5 py-1 mb-3">
           <div class="flex items-center gap-2">
             <span class="w-3 h-3 rounded-full bg-slate-400"></span>
             <h2 class="font-bold text-sm text-slate-800 uppercase tracking-wider">Cần làm (To Do)</h2>
           </div>
-          <span id="badge-todo" class="px-2 py-0.5 rounded-full text-xs font-bold bg-white text-slate-700 shadow-xs border border-slate-200">3</span>
+          <span id="badge-todo" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-white text-slate-700 shadow-2xs border border-slate-200">0</span>
         </div>
-        <div id="col-todo" class="kanban-col space-y-3 p-1 rounded-xl flex-1 transition-all" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event, 'todo')"><div class="bg-white p-4 rounded-xl border border-slate-200/90 shadow-xs hover:shadow-md transition-all cursor-grab active:cursor-grabbing relative overflow-hidden group" draggable="true" data-id="task-2">
-        <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-blue-600"></div>
-        <div class="pl-1">
-          <!-- Hàng header của card -->
-          <div class="flex items-center justify-between gap-2 mb-2">
-            <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold border bg-blue-50 text-blue-700 border-blue-200">
-              Truyền thông
-            </span>
-            <div class="flex items-center gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
-              <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium border bg-rose-100 text-rose-700 border-rose-200">
-                Cao
-              </span>
-            </div>
-          </div>
-
-          <!-- Tiêu đề công việc -->
-          <h4 class="text-sm font-semibold text-slate-800 leading-snug mb-1.5 hover:text-sky-700">
-            Soạn thảo kịch bản chương trình &amp; timeline chi tiết
-          </h4>
-
-          <!-- Mô tả thêm nếu có -->
-          <p class="text-xs text-slate-500 line-clamp-2 mb-2.5 leading-relaxed">Lên khung chương trình từ 18h00, phân bổ thời gian phát biểu, tặng hoa và minigame</p>
-
-          <!-- Hạn chót & Nút thao tác nhanh -->
-          <div class="flex items-center justify-between pt-2 border-t border-slate-100 text-xs text-slate-500">
-            <div class="flex items-center gap-1 font-medium text-slate-600">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="clock" aria-hidden="true" class="lucide lucide-clock w-3.5 h-3.5 text-slate-400"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
-              <span>Hạn: 13/10</span>
-            </div>
-            
-            <div class="flex items-center gap-1">
-              <!-- Nút chuyển nhanh trạng thái (Dành cho Mobile hoặc thao tác nhanh) -->
-              <select onchange="quickChangeStatus('task-2', this.value)" class="text-[11px] bg-slate-50 border border-slate-200 rounded px-1.5 py-0.5 text-slate-600 focus:outline-hidden focus:ring-1 focus:ring-sky-500 mr-1">
-                <option value="todo" selected="selected">Cần làm</option>
-                <option value="inprogress">Đang làm</option>
-                <option value="done">Xong</option>
-              </select>
-
-              <button onclick="editTask('task-2')" title="Sửa" class="p-1 text-slate-400 hover:text-sky-600 rounded">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="edit-3" aria-hidden="true" class="lucide lucide-edit-3 w-3.5 h-3.5"><path d="M13 21h8"></path><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path></svg>
-              </button>
-              <button onclick="deleteTask('task-2')" title="Xóa" class="p-1 text-slate-400 hover:text-rose-600 rounded">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="trash-2" aria-hidden="true" class="lucide lucide-trash-2 w-3.5 h-3.5"><path d="M10 11v6"></path><path d="M14 11v6"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-              </button>
-            </div>
-          </div>
+        <div id="col-todo" 
+             class="kanban-dropzone space-y-3 p-1 rounded-xl flex-1 transition-all"
+             ondragover="handleDragOver(event)" 
+             ondragleave="handleDragLeave(event)" 
+             ondrop="handleDrop(event, 'todo')">
+          <!-- Card render dynamically -->
         </div>
-      </div><div class="bg-white p-4 rounded-xl border border-slate-200/90 shadow-xs hover:shadow-md transition-all cursor-grab active:cursor-grabbing relative overflow-hidden group" draggable="true" data-id="task-4">
-        <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-blue-600"></div>
-        <div class="pl-1">
-          <!-- Hàng header của card -->
-          <div class="flex items-center justify-between gap-2 mb-2">
-            <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold border bg-blue-50 text-blue-700 border-blue-200">
-              Truyền thông
-            </span>
-            <div class="flex items-center gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
-              <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium border bg-amber-100 text-amber-700 border-amber-200">
-                Trung bình
-              </span>
-            </div>
-          </div>
-
-          <!-- Tiêu đề công việc -->
-          <h4 class="text-sm font-semibold text-slate-800 leading-snug mb-1.5 hover:text-sky-700">
-            Thiết kế maket backdrop &amp; slide trình chiếu LED
-          </h4>
-
-          <!-- Mô tả thêm nếu có -->
-          <p class="text-xs text-slate-500 line-clamp-2 mb-2.5 leading-relaxed">Thiết kế phông</p>
-
-          <!-- Hạn chót & Nút thao tác nhanh -->
-          <div class="flex items-center justify-between pt-2 border-t border-slate-100 text-xs text-slate-500">
-            <div class="flex items-center gap-1 font-medium text-slate-600">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="clock" aria-hidden="true" class="lucide lucide-clock w-3.5 h-3.5 text-slate-400"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
-              <span>Hạn: 14/10</span>
-            </div>
-            
-            <div class="flex items-center gap-1">
-              <!-- Nút chuyển nhanh trạng thái (Dành cho Mobile hoặc thao tác nhanh) -->
-              <select onchange="quickChangeStatus('task-4', this.value)" class="text-[11px] bg-slate-50 border border-slate-200 rounded px-1.5 py-0.5 text-slate-600 focus:outline-hidden focus:ring-1 focus:ring-sky-500 mr-1">
-                <option value="todo" selected="selected">Cần làm</option>
-                <option value="inprogress">Đang làm</option>
-                <option value="done">Xong</option>
-              </select>
-
-              <button onclick="editTask('task-4')" title="Sửa" class="p-1 text-slate-400 hover:text-sky-600 rounded">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="edit-3" aria-hidden="true" class="lucide lucide-edit-3 w-3.5 h-3.5"><path d="M13 21h8"></path><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path></svg>
-              </button>
-              <button onclick="deleteTask('task-4')" title="Xóa" class="p-1 text-slate-400 hover:text-rose-600 rounded">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="trash-2" aria-hidden="true" class="lucide lucide-trash-2 w-3.5 h-3.5"><path d="M10 11v6"></path><path d="M14 11v6"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div><div class="bg-white p-4 rounded-xl border border-slate-200/90 shadow-xs hover:shadow-md transition-all cursor-grab active:cursor-grabbing relative overflow-hidden group" draggable="true" data-id="task-1791787321461">
-        <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-blue-600"></div>
-        <div class="pl-1">
-          <!-- Hàng header của card -->
-          <div class="flex items-center justify-between gap-2 mb-2">
-            <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold border bg-blue-50 text-blue-700 border-blue-200">
-              Truyền thông
-            </span>
-            <div class="flex items-center gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
-              <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium border bg-amber-100 text-amber-700 border-amber-200">
-                Trung bình
-              </span>
-            </div>
-          </div>
-
-          <!-- Tiêu đề công việc -->
-          <h4 class="text-sm font-semibold text-slate-800 leading-snug mb-1.5 hover:text-sky-700">
-            Tạo giấy mời khách
-          </h4>
-
-          <!-- Mô tả thêm nếu có -->
-          
-
-          <!-- Hạn chót & Nút thao tác nhanh -->
-          <div class="flex items-center justify-between pt-2 border-t border-slate-100 text-xs text-slate-500">
-            <div class="flex items-center gap-1 font-medium text-slate-600">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="clock" aria-hidden="true" class="lucide lucide-clock w-3.5 h-3.5 text-slate-400"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
-              <span>Hạn: 14/10</span>
-            </div>
-            
-            <div class="flex items-center gap-1">
-              <!-- Nút chuyển nhanh trạng thái (Dành cho Mobile hoặc thao tác nhanh) -->
-              <select onchange="quickChangeStatus('task-1791787321461', this.value)" class="text-[11px] bg-slate-50 border border-slate-200 rounded px-1.5 py-0.5 text-slate-600 focus:outline-hidden focus:ring-1 focus:ring-sky-500 mr-1">
-                <option value="todo" selected="selected">Cần làm</option>
-                <option value="inprogress">Đang làm</option>
-                <option value="done">Xong</option>
-              </select>
-
-              <button onclick="editTask('task-1791787321461')" title="Sửa" class="p-1 text-slate-400 hover:text-sky-600 rounded">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="edit-3" aria-hidden="true" class="lucide lucide-edit-3 w-3.5 h-3.5"><path d="M13 21h8"></path><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path></svg>
-              </button>
-              <button onclick="deleteTask('task-1791787321461')" title="Xóa" class="p-1 text-slate-400 hover:text-rose-600 rounded">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="trash-2" aria-hidden="true" class="lucide lucide-trash-2 w-3.5 h-3.5"><path d="M10 11v6"></path><path d="M14 11v6"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div></div>
       </section>
 
-      <!-- Cột 2: Đang xử lý (In Progress) -->
+      <!-- CỘT 2: ĐANG XỬ LÝ (IN PROGRESS) -->
       <section class="flex flex-col bg-sky-50/80 rounded-2xl p-3.5 border border-sky-200 shadow-xs">
         <div class="flex items-center justify-between px-1.5 py-1 mb-3">
           <div class="flex items-center gap-2">
             <span class="w-3 h-3 rounded-full bg-sky-500 animate-pulse"></span>
             <h2 class="font-bold text-sm text-sky-900 uppercase tracking-wider">Đang xử lý (In Progress)</h2>
           </div>
-          <span id="badge-inprogress" class="px-2 py-0.5 rounded-full text-xs font-bold bg-white text-sky-700 shadow-xs border border-sky-200">1</span>
+          <span id="badge-inprogress" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-white text-sky-700 shadow-2xs border border-sky-200">0</span>
         </div>
-        <div id="col-inprogress" class="kanban-col space-y-3 p-1 rounded-xl flex-1 transition-all" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event, 'inprogress')"><div class="bg-white p-4 rounded-xl border border-slate-200/90 shadow-xs hover:shadow-md transition-all cursor-grab active:cursor-grabbing relative overflow-hidden group" draggable="true" data-id="task-1">
-        <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-blue-600"></div>
-        <div class="pl-1">
-          <!-- Hàng header của card -->
-          <div class="flex items-center justify-between gap-2 mb-2">
-            <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold border bg-blue-50 text-blue-700 border-blue-200">
-              Truyền thông
-            </span>
-            <div class="flex items-center gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
-              <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium border bg-rose-100 text-rose-700 border-rose-200">
-                Cao
-              </span>
-            </div>
-          </div>
-
-          <!-- Tiêu đề công việc -->
-          <h4 class="text-sm font-semibold text-slate-800 leading-snug mb-1.5 hover:text-sky-700">
-            Liên hệ các CĐ làm phương án sơ bộ
-          </h4>
-
-          <!-- Mô tả thêm nếu có -->
-          
-
-          <!-- Hạn chót & Nút thao tác nhanh -->
-          <div class="flex items-center justify-between pt-2 border-t border-slate-100 text-xs text-slate-500">
-            <div class="flex items-center gap-1 font-medium text-slate-600">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="clock" aria-hidden="true" class="lucide lucide-clock w-3.5 h-3.5 text-slate-400"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
-              <span>Hạn: 12/10</span>
-            </div>
-            
-            <div class="flex items-center gap-1">
-              <!-- Nút chuyển nhanh trạng thái (Dành cho Mobile hoặc thao tác nhanh) -->
-              <select onchange="quickChangeStatus('task-1', this.value)" class="text-[11px] bg-slate-50 border border-slate-200 rounded px-1.5 py-0.5 text-slate-600 focus:outline-hidden focus:ring-1 focus:ring-sky-500 mr-1">
-                <option value="todo">Cần làm</option>
-                <option value="inprogress" selected="selected">Đang làm</option>
-                <option value="done">Xong</option>
-              </select>
-
-              <button onclick="editTask('task-1')" title="Sửa" class="p-1 text-slate-400 hover:text-sky-600 rounded">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="edit-3" aria-hidden="true" class="lucide lucide-edit-3 w-3.5 h-3.5"><path d="M13 21h8"></path><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path></svg>
-              </button>
-              <button onclick="deleteTask('task-1')" title="Xóa" class="p-1 text-slate-400 hover:text-rose-600 rounded">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="trash-2" aria-hidden="true" class="lucide lucide-trash-2 w-3.5 h-3.5"><path d="M10 11v6"></path><path d="M14 11v6"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-              </button>
-            </div>
-          </div>
+        <div id="col-inprogress" 
+             class="kanban-dropzone space-y-3 p-1 rounded-xl flex-1 transition-all"
+             ondragover="handleDragOver(event)" 
+             ondragleave="handleDragLeave(event)" 
+             ondrop="handleDrop(event, 'inprogress')">
+          <!-- Card render dynamically -->
         </div>
-      </div></div>
       </section>
 
-      <!-- Cột 3: Đã hoàn thành (Done) -->
+      <!-- CỘT 3: ĐÃ HOÀN THÀNH (DONE) -->
       <section class="flex flex-col bg-emerald-50/80 rounded-2xl p-3.5 border border-emerald-200 shadow-xs">
         <div class="flex items-center justify-between px-1.5 py-1 mb-3">
           <div class="flex items-center gap-2">
             <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
             <h2 class="font-bold text-sm text-emerald-900 uppercase tracking-wider">Đã hoàn thành (Done)</h2>
           </div>
-          <span id="badge-done" class="px-2 py-0.5 rounded-full text-xs font-bold bg-white text-emerald-700 shadow-xs border border-emerald-200">0</span>
+          <span id="badge-done" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-white text-emerald-700 shadow-2xs border border-emerald-200">0</span>
         </div>
-        <div id="col-done" class="kanban-col space-y-3 p-1 rounded-xl flex-1 transition-all" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event, 'done')"></div>
+        <div id="col-done" 
+             class="kanban-dropzone space-y-3 p-1 rounded-xl flex-1 transition-all"
+             ondragover="handleDragOver(event)" 
+             ondragleave="handleDragLeave(event)" 
+             ondrop="handleDrop(event, 'done')">
+          <!-- Card render dynamically -->
+        </div>
       </section>
 
     </div>
   </main>
 
-  <!-- Modal Thêm / Chỉnh sửa công việc -->
-  <div id="taskModal" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-center justify-center p-4 hidden">
-    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden transform transition-all">
-      <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50">
-        <h3 id="modalTitle" class="font-bold text-base text-slate-800">Chỉnh sửa thông tin công việc</h3>
-        <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 p-1 rounded-lg">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="x" aria-hidden="true" class="lucide lucide-x w-5 h-5"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+  <!-- MODAL THÊM / CHỈNH SỬA CÔNG VIỆC -->
+  <div id="taskModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-2xs flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden transform transition-all border border-slate-100 animate-in fade-in zoom-in duration-150">
+      <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/80">
+        <div class="flex items-center gap-2">
+          <div id="modalIconContainer" class="w-8 h-8 rounded-lg bg-sky-100 text-sky-600 flex items-center justify-center">
+            <i data-lucide="edit-3" class="w-4 h-4"></i>
+          </div>
+          <h3 id="modalTitle" class="font-bold text-base text-slate-800">Chỉnh sửa thông tin công việc</h3>
+        </div>
+        <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg hover:bg-slate-100 transition-all">
+          <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
+
       <form id="taskForm" onsubmit="handleFormSubmit(event)" class="p-6 space-y-4">
-        <input type="hidden" id="taskId" value="task-4">
-        
-        <!-- Đơn vị phụ trách -->
+        <input type="hidden" id="taskId">
+
+        <!-- Nội dung công việc -->
         <div>
-          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Đơn vị phụ trách *</label>
-          <select id="taskUnit" required="" class="w-full rounded-lg border-slate-300 border px-3 py-2 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-hidden bg-white">
-            <option value="Truyền thông" selected="selected">Truyền thông (Trưởng khối)</option>
-            <option value="Tài chính">Tài chính (Phó khối)</option>
-            <option value="Đào tạo">Đào tạo</option>
-            <option value="Tổ chức">Tổ chức</option>
-            <option value="Khảo thí">Khảo thí</option>
-          </select>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Tên công việc <span class="text-rose-500">*</span></label>
+          <input type="text" id="taskTitle" required placeholder="Nhập tên đầu việc cần thực hiện..." 
+                 class="w-full rounded-xl border-slate-300 border px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-hidden transition-all font-medium">
         </div>
 
-        <!-- Tên công việc -->
-        <div>
-          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Nội dung công việc *</label>
-          <input type="text" id="taskTitle" required="" placeholder="Nhập tên đầu việc cần thực hiện..." class="w-full rounded-lg border-slate-300 border px-3 py-2 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-hidden" value="Thiết kế maket backdrop &amp; slide trình chiếu LED">
-        </div>
-
-        <!-- Hạn hoàn thành & Mức độ ưu tiên -->
-        <div class="grid grid-cols-2 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <!-- Đơn vị phụ trách -->
           <div>
-            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Hạn chót (Deadline) *</label>
-            <input type="text" id="taskDeadline" required="" placeholder="VD: 14/10 hoặc 15h 15/10" class="w-full rounded-lg border-slate-300 border px-3 py-2 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-hidden" value="14/10">
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Đơn vị phụ trách <span class="text-rose-500">*</span></label>
+            <select id="taskUnit" required class="w-full rounded-xl border-slate-300 border px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-hidden bg-white">
+              <option value="Truyền thông">Truyền thông (Trưởng khối)</option>
+              <option value="Tài chính">Tài chính (Phó khối)</option>
+              <option value="Đào tạo">Đào tạo</option>
+              <option value="Tổ chức">Tổ chức</option>
+              <option value="Khảo thí">Khảo thí</option>
+            </select>
           </div>
+
+          <!-- Người / Đầu mối phụ trách -->
           <div>
-            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Mức độ ưu tiên</label>
-            <select id="taskPriority" class="w-full rounded-lg border-slate-300 border px-3 py-2 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-hidden bg-white">
-              <option value="Cao">Ưu tiên Cao</option>
-              <option value="Trung bình" selected="selected">Trung bình</option>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Đầu mối phụ trách</label>
+            <input type="text" id="taskAssignee" placeholder="VD: Anh Quang, CĐ phòng..." 
+                   class="w-full rounded-xl border-slate-300 border px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-hidden">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+          <!-- Hạn chót -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Hạn chót (Deadline) <span class="text-rose-500">*</span></label>
+            <input type="text" id="taskDeadline" required placeholder="VD: 14/10 hoặc 15h 15/10" 
+                   class="w-full rounded-xl border-slate-300 border px-3 py-2.5 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-hidden">
+          </div>
+
+          <!-- Mức độ ưu tiên -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Mức ưu tiên</label>
+            <select id="taskPriority" class="w-full rounded-xl border-slate-300 border px-3 py-2.5 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-hidden bg-white">
+              <option value="Cao">Cao</option>
+              <option value="Trung bình" selected>Trung bình</option>
               <option value="Bình thường">Bình thường</option>
+            </select>
+          </div>
+
+          <!-- Trạng thái cột -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Trạng thái</label>
+            <select id="taskStatus" class="w-full rounded-xl border-slate-300 border px-3 py-2.5 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-hidden bg-white font-medium">
+              <option value="todo">Cần làm</option>
+              <option value="inprogress">Đang xử lý</option>
+              <option value="done">Đã hoàn thành</option>
             </select>
           </div>
         </div>
 
-        <!-- Trạng thái -->
-        <div>
-          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Trạng thái khởi tạo</label>
-          <select id="taskStatus" class="w-full rounded-lg border-slate-300 border px-3 py-2 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-hidden bg-white">
-            <option value="todo" selected="selected">Cần làm (To Do)</option>
-            <option value="inprogress">Đang xử lý (In Progress)</option>
-            <option value="done">Đã hoàn thành (Done)</option>
-          </select>
-        </div>
-
         <!-- Chi tiết ghi chú -->
         <div>
-          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Chi tiết / Yêu cầu thêm</label>
-          <textarea id="taskDesc" rows="2" placeholder="Ghi chú người thực hiện, yêu cầu chi tiết hoặc lưu ý..." class="w-full rounded-lg border-slate-300 border px-3 py-2 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-hidden">Thiết kế phông</textarea>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Chi tiết công việc / Ghi chú</label>
+          <textarea id="taskDesc" rows="3" placeholder="Ghi chú chi tiết yêu cầu, lưu ý tài chính, địa điểm hoặc phân công cụ thể..." 
+                    class="w-full rounded-xl border-slate-300 border px-3.5 py-2 text-sm focus:ring-2 focus:ring-sky-500 focus:outline-hidden leading-relaxed"></textarea>
         </div>
 
-        <!-- Footer Buttons -->
-        <div class="flex items-center justify-end gap-2 pt-2 border-t border-slate-100">
-          <button type="button" onclick="closeModal()" class="px-4 py-2 text-sm rounded-lg text-slate-600 hover:bg-slate-100 font-medium">Hủy</button>
-          <button type="submit" class="px-4 py-2 text-sm rounded-lg bg-sky-600 hover:bg-sky-700 text-white font-semibold shadow-xs">Lưu công việc</button>
+        <!-- Nút thao tác trong Modal -->
+        <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+          <button type="button" id="modalDeleteBtn" onclick="deleteCurrentTaskFromModal()" class="hidden text-xs text-rose-600 hover:text-rose-700 hover:underline font-semibold flex items-center gap-1">
+            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i> Xóa việc này
+          </button>
+          <div class="flex items-center justify-end gap-2 ml-auto">
+            <button type="button" onclick="closeModal()" class="px-4 py-2.5 text-sm rounded-xl text-slate-600 hover:bg-slate-100 font-medium transition-all">Hủy</button>
+            <button type="submit" class="px-5 py-2.5 text-sm rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-semibold shadow-xs transition-all flex items-center gap-1.5">
+              <i data-lucide="save" class="w-4 h-4"></i> Lưu công việc
+            </button>
+          </div>
         </div>
       </form>
     </div>
   </div>
 
-  <!-- Toast Notification -->
-  <div id="toast" class="fixed bottom-5 right-5 z-50 bg-slate-900 text-white px-4 py-2.5 rounded-xl shadow-lg text-sm flex items-center gap-2 transform transition-all duration-300 pointer-events-none translate-y-20 opacity-0">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle" aria-hidden="true" class="lucide lucide-check-circle w-4 h-4 text-emerald-400"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
-    <span id="toastMessage">Đã lưu thay đổi công việc!</span>
+  <!-- Toast Thông Báo -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-xl text-xs sm:text-sm flex items-center gap-2.5 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+    <span id="toastMessage">Đã lưu thay đổi thành công!</span>
   </div>
 
   <script>
@@ -456,111 +364,123 @@
     const DEFAULT_TASKS = [
       {
         id: "task-1",
-        title: "Liên hệ CĐ Tài chính thống nhất phương án sơ bộ",
+        title: "Liên hệ CĐ Tài chính thống nhất phương án sơ bộ & kinh phí chia sẻ",
         unit: "Truyền thông",
+        assignee: "Anh Quang",
         deadline: "12/10",
         priority: "Cao",
         status: "done",
-        desc: "Đã trao đổi Chủ tịch CĐ Kế hoạch - Tài chính về ngày tổ chức 16/10 và cách thức đóng góp chia sẻ."
+        desc: "Đã trao đổi Chủ tịch CĐ Kế hoạch - Tài chính về ngày tổ chức 16/10 và cách thức đóng góp chia sẻ giữa các công đoàn."
       },
       {
         id: "task-2",
         title: "Soạn thảo kịch bản chương trình & timeline chi tiết",
         unit: "Truyền thông",
+        assignee: "Phòng Truyền thông",
         deadline: "13/10",
         priority: "Cao",
         status: "inprogress",
-        desc: "Lên khung chương trình từ 15h30, phân bổ thời gian phát biểu, tặng quà và minigame."
+        desc: "Lên khung chương trình chi tiết từ 15h30: khai mạc, tặng hoa, trò chơi mini và tiệc ngọt."
       },
       {
         id: "task-3",
-        title: "Lập dự toán kinh phí chia sẻ & định mức 5 đơn vị",
+        title: "Lập bảng dự toán chi phí chi tiết & chia định mức 5 đơn vị",
         unit: "Tài chính",
+        assignee: "CĐ Tài chính",
         deadline: "13/10",
         priority: "Cao",
         status: "inprogress",
-        desc: "Dự trù tiền hoa tươi, quà chúc mừng, bánh trà giao lưu và chia đều mức đóng góp."
+        desc: "Dự toán tiền hoa chúc mừng, quà minigame, bánh trái và trà tiệc giao lưu theo tinh thần chia sẻ."
       },
       {
         id: "task-4",
-        title: "Thiết kế maket backdrop & slide trình chiếu LED",
+        title: "Thiết kế maket backdrop & slide trình chiếu màn hình LED",
         unit: "Truyền thông",
+        assignee: "Tổ thiết kế",
         deadline: "14/10",
         priority: "Trung bình",
         status: "todo",
-        desc: "Thiết kế phông chào mừng 20/10 Khối Hành chính và slide bài hát/nhạc nền."
+        desc: "Phông chào mừng Ngày Phụ nữ Việt Nam 20/10 Khối Hành chính, nhạc nền và slide minigame."
       },
       {
         id: "task-5",
-        title: "Cử MC dẫn dắt chương trình & điều phối minigame",
+        title: "Cử MC dẫn dắt chương trình & điều phối trò chơi",
         unit: "Truyền thông",
+        assignee: "Truyền thông",
         deadline: "14/10",
         priority: "Trung bình",
         status: "todo",
-        desc: "Chọn 1 nam / 1 nữ dẫn dắt hoạt náo xuyên suốt chương trình."
+        desc: "Cử 1-2 MC nam nữ hoạt náo, phối hợp nhịp nhàng với ban tổ chức."
       },
       {
         id: "task-6",
-        title: "Chuẩn bị 1-2 tiết mục văn nghệ giao lưu",
+        title: "Chuẩn bị 1-2 tiết mục văn nghệ giao lưu (hát / thơ)",
         unit: "Đào tạo",
+        assignee: "CĐ Đào tạo",
         deadline: "14/10",
         priority: "Trung bình",
         status: "todo",
-        desc: "Chuẩn bị tiết mục đơn ca hoặc tam ca ca ngợi phụ nữ Việt Nam."
+        desc: "Chuẩn bị tiết mục văn nghệ giao lưu tạo không khí sôi nổi, ấm áp."
       },
       {
         id: "task-7",
-        title: "Phối hợp chuẩn bị 2 trò chơi tập thể kết nối",
+        title: "Phối hợp thiết kế 2 minigame kết nối giữa các đơn vị",
         unit: "Đào tạo",
+        assignee: "CĐ Đào tạo",
         deadline: "14/10",
         priority: "Trung bình",
         status: "todo",
-        desc: "Soạn câu hỏi đố vui và chuẩn bị trò chơi giao lưu giữa các phòng ban."
+        desc: "Soạn câu hỏi đố vui và chuẩn bị đạo cụ trò chơi giao lưu kết nối 5 phòng."
       },
       {
         id: "task-8",
-        title: "Đặt hoa tươi & quà tặng chúc mừng chị em phụ nữ",
+        title: "Đặt hoa tươi & chuẩn bị phần quà chúc mừng các chị em",
         unit: "Khảo thí",
+        assignee: "CĐ Khảo thí",
         deadline: "14/10",
         priority: "Cao",
         status: "todo",
-        desc: "Liên hệ đặt hoa tươi trang trọng và quà tặng gửi nữ cán bộ khối."
+        desc: "Đặt lẵng hoa tươi chúc mừng và các phần quà trao tặng đại diện nữ các phòng ban."
       },
       {
         id: "task-9",
         title: "Đặt bánh ngọt, trái cây & chuẩn bị bàn tiệc giao lưu",
         unit: "Khảo thí",
+        assignee: "CĐ Khảo thí",
         deadline: "15/10",
         priority: "Cao",
         status: "todo",
-        desc: "Đặt tiệc trà bánh ngọt, hoa quả tươi và nước uống cho toàn thể người tham dự."
+        desc: "Đặt bánh kem/bánh ngọt, trái cây tươi, trà, nước ngọt và dụng cụ dùng tiệc trước 15h00."
       },
       {
         id: "task-10",
-        title: "Chuẩn bị hội trường, kê bàn ghế & vệ sinh không gian",
+        title: "Chuẩn bị hội trường: kê bàn ghế quây ấm cúng & vệ sinh",
         unit: "Tổ chức",
+        assignee: "CĐ TCHC",
         deadline: "15/10",
         priority: "Cao",
         status: "todo",
-        desc: "Sắp xếp hội trường ấm cúng theo hình chữ U hoặc quây tròn để tăng tương tác."
+        desc: "Bố trí bàn ghế theo hình chữ U hoặc quây tròn tăng tương tác, chuẩn bị nước uống đón tiếp."
       },
       {
         id: "task-11",
-        title: "Kiểm tra kỹ thuật âm thanh, mic & máy chiếu",
+        title: "Kiểm tra kỹ thuật âm thanh, 2 micro & kết nối máy chiếu",
         unit: "Tổ chức",
+        assignee: "Tổ kỹ thuật TCHC",
         deadline: "15/10",
         priority: "Cao",
         status: "todo",
-        desc: "Test trước 2 mic không dây, loa và kết nối máy tính trình chiếu."
+        desc: "Test âm thanh loa máy, thay pin micro không dây và kiểm tra cổng HDMI máy chiếu."
       },
       {
         id: "task-12",
-        title: "Thu kinh phí & thực hiện quyết toán chi phí",
+        title: "Thu kinh phí đóng góp và thực hiện thanh quyết toán",
         unit: "Tài chính",
+        assignee: "CĐ Tài chính",
         deadline: "16/10",
         priority: "Trung bình",
         status: "todo",
-        desc: "Thu tiền đóng góp từ 5 công đoàn và thanh toán các khoản chi thực tế."
+        desc: "Thu kinh phí đóng góp từ 5 công đoàn và thanh toán các hóa đơn thực tế sau chương trình."
       }
     ];
 
@@ -606,9 +526,9 @@
 
     let tasks = [];
     let currentFilter = 'all';
+    let searchQuery = '';
     let draggedTaskId = null;
 
-    // Tải dữ liệu từ LocalStorage
     function loadTasks() {
       const stored = localStorage.getItem('block_2010_kanban_tasks');
       if (stored) {
@@ -624,35 +544,57 @@
       renderBoard();
     }
 
-    // Lưu dữ liệu vào LocalStorage
     function saveTasks() {
       localStorage.setItem('block_2010_kanban_tasks', JSON.stringify(tasks));
-      updateProgress();
+      updateProgressMetrics();
     }
 
-    // Đặt lại dữ liệu gốc
-    function resetToDefaultData() {
-      tasks = JSON.parse(JSON.stringify(DEFAULT_TASKS));
-      saveTasks();
-      renderBoard();
-      showToast('Đã đặt lại dữ liệu phân công ban đầu!');
-    }
-
-    // Cập nhật tỷ lệ % tiến độ
-    function updateProgress() {
+    function updateProgressMetrics() {
       const total = tasks.length;
       const doneCount = tasks.filter(t => t.status === 'done').length;
       const percent = total > 0 ? Math.round((doneCount / total) * 100) : 0;
       
       const progressBar = document.getElementById('progress-bar-fill');
       const progressText = document.getElementById('progress-text');
-      if (progressBar && progressText) {
+      const progressCount = document.getElementById('progress-count');
+      if (progressBar && progressText && progressCount) {
         progressBar.style.width = percent + '%';
-        progressText.innerText = `${percent}% (${doneCount}/${total} việc)`;
+        progressText.innerText = `${percent}%`;
+        progressCount.innerText = `(${doneCount}/${total} việc hoàn thành)`;
       }
     }
 
-    // Hiển thị danh sách card lên 3 cột
+    function handleSearch(val) {
+      searchQuery = (val || '').trim().toLowerCase();
+      const clearBtn = document.getElementById('clearSearchBtn');
+      if (clearBtn) {
+        if (searchQuery) clearBtn.classList.remove('hidden');
+        else clearBtn.classList.add('hidden');
+      }
+      renderBoard();
+    }
+
+    function clearSearch() {
+      const input = document.getElementById('searchInput');
+      if (input) input.value = '';
+      searchQuery = '';
+      document.getElementById('clearSearchBtn').classList.add('hidden');
+      renderBoard();
+    }
+
+    function filterByUnit(unit) {
+      currentFilter = unit;
+      document.querySelectorAll('.unit-filter-btn').forEach(btn => {
+        const btnUnit = btn.getAttribute('data-unit');
+        if (btnUnit === unit) {
+          btn.className = "unit-filter-btn px-2.5 py-1 rounded-md border text-xs transition-all bg-slate-900 text-white border-slate-900 font-semibold";
+        } else {
+          btn.className = "unit-filter-btn px-2.5 py-1 rounded-md border text-xs transition-all bg-white text-slate-600 border-slate-200 hover:bg-slate-50";
+        }
+      });
+      renderBoard();
+    }
+
     function renderBoard() {
       const cols = {
         todo: document.getElementById('col-todo'),
@@ -660,12 +602,18 @@
         done: document.getElementById('col-done')
       };
 
-      // Xóa nội dung cũ
       Object.values(cols).forEach(col => col.innerHTML = '');
 
-      const filteredTasks = currentFilter === 'all' 
-        ? tasks 
-        : tasks.filter(t => t.unit === currentFilter);
+      // Lọc danh sách theo Đơn vị và Tìm kiếm từ khóa
+      const filteredTasks = tasks.filter(task => {
+        const matchUnit = (currentFilter === 'all') || (task.unit === currentFilter);
+        const matchSearch = !searchQuery || 
+          task.title.toLowerCase().includes(searchQuery) ||
+          (task.desc && task.desc.toLowerCase().includes(searchQuery)) ||
+          (task.assignee && task.assignee.toLowerCase().includes(searchQuery)) ||
+          (task.unit && task.unit.toLowerCase().includes(searchQuery));
+        return matchUnit && matchSearch;
+      });
 
       const counts = { todo: 0, inprogress: 0, done: 0 };
 
@@ -677,21 +625,19 @@
         }
       });
 
-      // Cập nhật số lượng đếm trên badge
       document.getElementById('badge-todo').innerText = counts.todo;
       document.getElementById('badge-inprogress').innerText = counts.inprogress;
       document.getElementById('badge-done').innerText = counts.done;
 
-      // Cập nhật thanh tiến độ
-      updateProgress();
+      // Cập nhật thanh tiến độ chung
+      updateProgressMetrics();
 
-      // Kích hoạt lại icon Lucide
+      // Render lại icon Lucide
       if (window.lucide) {
         lucide.createIcons();
       }
     }
 
-    // Tạo phần tử Card HTML
     function createCardElement(task) {
       const unitStyle = UNIT_CONFIG[task.unit] || {
         badgeBg: 'bg-slate-100',
@@ -703,59 +649,76 @@
       const priorityBadge = PRIORITY_BADGES[task.priority] || PRIORITY_BADGES['Trung bình'];
 
       const card = document.createElement('div');
-      card.className = "bg-white p-4 rounded-xl border border-slate-200/90 shadow-xs hover:shadow-md transition-all cursor-grab active:cursor-grabbing relative overflow-hidden group";
+      card.className = "task-card bg-white p-3.5 rounded-xl border border-slate-200/90 shadow-2xs hover:shadow-md transition-all cursor-grab active:cursor-grabbing relative overflow-hidden group select-none";
       card.setAttribute('draggable', 'true');
       card.setAttribute('data-id', task.id);
+      card.setAttribute('title', 'Nhấp đúp chuột để chỉnh sửa việc này nhanh');
 
-      // Gắn sự kiện kéo thả HTML5
+      // Gắn sự kiện Double click để sửa nhanh
+      card.addEventListener('dblclick', (e) => {
+        // Tránh kích hoạt nếu đang bấm select hoặc button
+        if (e.target.tagName !== 'SELECT' && e.target.tagName !== 'BUTTON' && !e.target.closest('button')) {
+          editTask(task.id);
+        }
+      });
+
+      // Kéo thả HTML5
       card.addEventListener('dragstart', handleDragStart);
       card.addEventListener('dragend', handleDragEnd);
 
       card.innerHTML = `
         <div class="absolute left-0 top-0 bottom-0 w-1.5 ${unitStyle.accentBar}"></div>
         <div class="pl-1">
-          <!-- Hàng header của card -->
-          <div class="flex items-center justify-between gap-2 mb-2">
-            <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold border ${unitStyle.badgeBg} ${unitStyle.badgeText} ${unitStyle.badgeBorder}">
+          <!-- Dòng 1: Đơn vị + Mức ưu tiên + Nút Sửa & Xóa -->
+          <div class="flex items-center justify-between gap-1.5 mb-2">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-bold border ${unitStyle.badgeBg} ${unitStyle.badgeText} ${unitStyle.badgeBorder}">
               ${task.unit}
             </span>
-            <div class="flex items-center gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
-              <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium border ${priorityBadge}">
+            
+            <div class="flex items-center gap-1">
+              <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold border ${priorityBadge}">
                 ${task.priority}
               </span>
+              <!-- Nút Sửa nhanh -->
+              <button onclick="editTask('${task.id}')" title="Sửa chi tiết công việc" class="p-1 text-slate-400 hover:text-sky-600 hover:bg-sky-50 rounded transition-all">
+                <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
+              </button>
+              <!-- Nút Xóa nhanh -->
+              <button onclick="deleteTaskPrompt('${task.id}')" title="Xóa việc" class="p-1 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded transition-all">
+                <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+              </button>
             </div>
           </div>
 
           <!-- Tiêu đề công việc -->
-          <h4 class="text-sm font-semibold text-slate-800 leading-snug mb-1.5 hover:text-sky-700">
-            ${task.title}
+          <h4 onclick="editTask('${task.id}')" class="text-sm font-semibold text-slate-800 leading-snug mb-1 hover:text-sky-700 cursor-pointer">
+            ${escapeHtml(task.title)}
           </h4>
 
-          <!-- Mô tả thêm nếu có -->
-          ${task.desc ? `<p class="text-xs text-slate-500 line-clamp-2 mb-2.5 leading-relaxed">${task.desc}</p>` : ''}
+          <!-- Ghi chú / Mô tả nếu có -->
+          ${task.desc ? `<p class="text-xs text-slate-500 line-clamp-2 mb-2 leading-relaxed">${escapeHtml(task.desc)}</p>` : ''}
 
-          <!-- Hạn chót & Nút thao tác nhanh -->
-          <div class="flex items-center justify-between pt-2 border-t border-slate-100 text-xs text-slate-500">
-            <div class="flex items-center gap-1 font-medium text-slate-600">
-              <i data-lucide="clock" class="w-3.5 h-3.5 text-slate-400"></i>
-              <span>Hạn: ${task.deadline}</span>
+          <!-- Phụ trách & Hạn chót -->
+          <div class="flex items-center justify-between text-xs text-slate-500 pt-2 border-t border-slate-100/80 gap-2">
+            <div class="flex items-center gap-1 truncate font-medium text-slate-600">
+              <i data-lucide="user" class="w-3.5 h-3.5 text-slate-400 flex-shrink-0"></i>
+              <span class="truncate">${escapeHtml(task.assignee || task.unit)}</span>
             </div>
-            
-            <div class="flex items-center gap-1">
-              <!-- Nút chuyển nhanh trạng thái (Dành cho Mobile hoặc thao tác nhanh) -->
-              <select onchange="quickChangeStatus('${task.id}', this.value)" class="text-[11px] bg-slate-50 border border-slate-200 rounded px-1.5 py-0.5 text-slate-600 focus:outline-hidden focus:ring-1 focus:ring-sky-500 mr-1">
-                <option value="todo" ${task.status === 'todo' ? 'selected' : ''}>Cần làm</option>
-                <option value="inprogress" ${task.status === 'inprogress' ? 'selected' : ''}>Đang làm</option>
-                <option value="done" ${task.status === 'done' ? 'selected' : ''}>Xong</option>
-              </select>
 
-              <button onclick="editTask('${task.id}')" title="Sửa" class="p-1 text-slate-400 hover:text-sky-600 rounded">
-                <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
-              </button>
-              <button onclick="deleteTask('${task.id}')" title="Xóa" class="p-1 text-slate-400 hover:text-rose-600 rounded">
-                <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
-              </button>
+            <div class="flex items-center gap-1 flex-shrink-0 text-slate-600 font-medium">
+              <i data-lucide="calendar" class="w-3.5 h-3.5 text-slate-400"></i>
+              <span>${escapeHtml(task.deadline)}</span>
             </div>
+          </div>
+
+          <!-- Chuyển trạng thái cột nhanh -->
+          <div class="mt-2.5 pt-2 border-t border-dashed border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+            <span class="text-slate-400">Chuyển cột:</span>
+            <select onchange="quickChangeStatus('${task.id}', this.value)" class="text-[11px] font-medium bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-md px-2 py-0.5 text-slate-700 focus:outline-hidden focus:ring-1 focus:ring-sky-500 transition-colors">
+              <option value="todo" ${task.status === 'todo' ? 'selected' : ''}>Cần làm</option>
+              <option value="inprogress" ${task.status === 'inprogress' ? 'selected' : ''}>Đang làm</option>
+              <option value="done" ${task.status === 'done' ? 'selected' : ''}>Đã xong</option>
+            </select>
           </div>
         </div>
       `;
@@ -765,30 +728,30 @@
 
     function handleDragStart(e) {
       draggedTaskId = this.getAttribute('data-id');
-      this.classList.add('card-dragging');
+      this.classList.add('task-card-ghost');
       e.dataTransfer.effectAllowed = 'move';
       e.dataTransfer.setData('text/plain', draggedTaskId);
     }
 
     function handleDragEnd() {
-      this.classList.remove('card-dragging');
+      this.classList.remove('task-card-ghost');
       draggedTaskId = null;
-      document.querySelectorAll('.kanban-col').forEach(col => col.classList.remove('drag-over'));
+      document.querySelectorAll('.kanban-dropzone').forEach(col => col.classList.remove('drag-active'));
     }
 
     function handleDragOver(e) {
       e.preventDefault();
       e.dataTransfer.dropEffect = 'move';
-      e.currentTarget.classList.add('drag-over');
+      e.currentTarget.classList.add('drag-active');
     }
 
     function handleDragLeave(e) {
-      e.currentTarget.classList.remove('drag-over');
+      e.currentTarget.classList.remove('drag-active');
     }
 
     function handleDrop(e, newStatus) {
       e.preventDefault();
-      e.currentTarget.classList.remove('drag-over');
+      e.currentTarget.classList.remove('drag-active');
       
       const id = e.dataTransfer.getData('text/plain') || draggedTaskId;
       if (!id) return;
@@ -798,7 +761,7 @@
         task.status = newStatus;
         saveTasks();
         renderBoard();
-        showToast(`Đã chuyển công việc sang: ${getStatusName(newStatus)}`);
+        showToast(`Đã chuyển việc sang: ${getStatusName(newStatus)}`);
       }
     }
 
@@ -808,7 +771,7 @@
         task.status = newStatus;
         saveTasks();
         renderBoard();
-        showToast(`Đã cập nhật trạng thái: ${getStatusName(newStatus)}`);
+        showToast(`Đã chuyển sang: ${getStatusName(newStatus)}`);
       }
     }
 
@@ -821,32 +784,17 @@
       }
     }
 
-    function filterByUnit(unit) {
-      currentFilter = unit;
-      document.querySelectorAll('.unit-filter-btn').forEach(btn => {
-        const btnUnit = btn.getAttribute('data-unit');
-        if (btnUnit === unit) {
-          btn.className = "unit-filter-btn px-2.5 py-1 rounded-md font-medium border transition-colors bg-slate-900 text-white border-slate-900";
-        } else {
-          btn.className = "unit-filter-btn px-2.5 py-1 rounded-md font-medium border transition-colors bg-white text-slate-600 border-slate-200 hover:bg-slate-50";
-        }
-      });
-      renderBoard();
-    }
-
-    function openModal(isEdit = false) {
-      const modal = document.getElementById('taskModal');
-      modal.classList.remove('hidden');
-      if (!isEdit) {
-        document.getElementById('modalTitle').innerText = 'Thêm công việc phân công mới';
-        document.getElementById('taskForm').reset();
-        document.getElementById('taskId').value = '';
-        document.getElementById('taskDeadline').value = '14/10';
-      }
-    }
-
-    function closeModal() {
-      document.getElementById('taskModal').classList.add('hidden');
+    function openModalForCreate() {
+      document.getElementById('modalTitle').innerText = 'Thêm công việc phân công mới';
+      document.getElementById('taskForm').reset();
+      document.getElementById('taskId').value = '';
+      document.getElementById('taskUnit').value = currentFilter !== 'all' ? currentFilter : 'Truyền thông';
+      document.getElementById('taskDeadline').value = '14/10';
+      document.getElementById('taskAssignee').value = '';
+      document.getElementById('taskStatus').value = 'todo';
+      document.getElementById('taskPriority').value = 'Trung bình';
+      document.getElementById('modalDeleteBtn').classList.add('hidden');
+      document.getElementById('taskModal').classList.remove('hidden');
     }
 
     function editTask(id) {
@@ -855,32 +803,30 @@
 
       document.getElementById('modalTitle').innerText = 'Chỉnh sửa thông tin công việc';
       document.getElementById('taskId').value = task.id;
-      document.getElementById('taskUnit').value = task.unit;
       document.getElementById('taskTitle').value = task.title;
+      document.getElementById('taskUnit').value = task.unit;
+      document.getElementById('taskAssignee').value = task.assignee || '';
       document.getElementById('taskDeadline').value = task.deadline;
       document.getElementById('taskPriority').value = task.priority;
       document.getElementById('taskStatus').value = task.status;
       document.getElementById('taskDesc').value = task.desc || '';
+      
+      const deleteBtn = document.getElementById('modalDeleteBtn');
+      deleteBtn.classList.remove('hidden');
 
-      openModal(true);
+      document.getElementById('taskModal').classList.remove('hidden');
     }
 
-    function deleteTask(id) {
-      const task = tasks.find(t => t.id === id);
-      const confirmMsg = `Bạn muốn xóa công việc: "${task ? task.title : ''}"?`;
-      
-      // Xóa trực tiếp sau khi xác nhận đơn giản
-      tasks = tasks.filter(t => t.id !== id);
-      saveTasks();
-      renderBoard();
-      showToast('Đã xóa công việc khỏi danh sách!');
+    function closeModal() {
+      document.getElementById('taskModal').classList.add('hidden');
     }
 
     function handleFormSubmit(e) {
       e.preventDefault();
       const id = document.getElementById('taskId').value;
-      const unit = document.getElementById('taskUnit').value;
       const title = document.getElementById('taskTitle').value.trim();
+      const unit = document.getElementById('taskUnit').value;
+      const assignee = document.getElementById('taskAssignee').value.trim();
       const deadline = document.getElementById('taskDeadline').value.trim();
       const priority = document.getElementById('taskPriority').value;
       const status = document.getElementById('taskStatus').value;
@@ -889,24 +835,25 @@
       if (!title || !deadline) return;
 
       if (id) {
-        // Cập nhật công việc sẵn có
+        // Cập nhật công việc hiện có
         const index = tasks.findIndex(t => t.id === id);
         if (index !== -1) {
-          tasks[index] = { ...tasks[index], unit, title, deadline, priority, status, desc };
-          showToast('Đã lưu thay đổi công việc!');
+          tasks[index] = { ...tasks[index], title, unit, assignee, deadline, priority, status, desc };
+          showToast('Đã lưu chỉnh sửa công việc thành công!');
         }
       } else {
-        // Thêm công việc mới
+        // Thêm mới công việc
         const newTask = {
           id: 'task-' + Date.now(),
-          unit,
           title,
+          unit,
+          assignee,
           deadline,
           priority,
           status,
           desc
         };
-        tasks.push(newTask);
+        tasks.unshift(newTask);
         showToast('Đã thêm công việc mới vào bảng!');
       }
 
@@ -915,12 +862,72 @@
       renderBoard();
     }
 
-    function showToast(message) {
-      const toast = document.getElementById('toast');
-      const toastMessage = document.getElementById('toastMessage');
-      if (!toast || !toastMessage) return;
+    function deleteCurrentTaskFromModal() {
+      const id = document.getElementById('taskId').value;
+      if (id) {
+        deleteTaskPrompt(id);
+        closeModal();
+      }
+    }
 
-      toastMessage.innerText = message;
+    function deleteTaskPrompt(id) {
+      const task = tasks.find(t => t.id === id);
+      if (!task) return;
+      
+      // Xóa công việc an toàn
+      tasks = tasks.filter(t => t.id !== id);
+      saveTasks();
+      renderBoard();
+      showToast(`Đã xóa: "${task.title.substring(0, 25)}..."`);
+    }
+
+    function exportData() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(tasks, null, 2));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", `ke_hoach_20_10_khoi_hanh_chinh_${new Date().toISOString().slice(0, 10)}.json`);
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+      showToast('Đã xuất file dự phòng JSON thành công!');
+    }
+
+    function importData(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const parsed = JSON.parse(e.target.result);
+          if (Array.isArray(parsed)) {
+            tasks = parsed;
+            saveTasks();
+            renderBoard();
+            showToast('Đã nhập thành công toàn bộ dữ liệu từ file!');
+          }
+        } catch (err) {
+          showToast('Lỗi: File JSON không đúng định dạng!');
+        }
+      };
+      reader.readAsText(file);
+      event.target.value = '';
+    }
+
+    function resetDefaultTasksWithPrompt() {
+      tasks = JSON.parse(JSON.stringify(DEFAULT_TASKS));
+      saveTasks();
+      renderBoard();
+      showToast('Đã khôi phục danh mục công việc mẫu ban đầu!');
+    }
+
+    // Helper functions
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMessage');
+      if (!toast || !toastMsg) return;
+
+      toastMsg.innerText = msg;
       toast.classList.remove('translate-y-20', 'opacity-0');
       toast.classList.add('translate-y-0', 'opacity-100');
 
@@ -930,18 +937,29 @@
       }, 2500);
     }
 
-    // Đóng modal khi nhấn ra ngoài
+    function escapeHtml(text) {
+      if (!text) return '';
+      return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    // Đóng modal khi nhấn phím ESC hoặc nhấn ra ngoài
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
     window.addEventListener('click', (e) => {
       const modal = document.getElementById('taskModal');
-      if (e.target === modal) {
-        closeModal();
-      }
+      if (e.target === modal) closeModal();
     });
 
-    // Khởi chạy khi load trang
+    // Khởi tạo ứng dụng
     window.addEventListener('DOMContentLoaded', () => {
       loadTasks();
     });
   </script>
-
-</body></html>
+</body>
+</html>
